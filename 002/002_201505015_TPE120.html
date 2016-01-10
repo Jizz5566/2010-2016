@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>台北市支持率排名</title>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&language=zh-TW&libraries=geometry"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/maplace-0.1.3.min.js?v=0.1.33"></script>
+    <script src="js/maplabel-compiled.js"></script>
+    <style>
+    #map-canvas {
+        width: auto;
+        height: 600px;
+    }
+    .layer-wizard-search-label {
+        font-family: sans-serif
+    }
+    #googft-legend {
+        background-color: #fff;
+        border: 1px solid #000;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        margin: 5px;
+        padding: 10px 10px 8px;
+    }
+    #googft-legend p {
+        font-weight: bold;
+        margin-top: 0;
+    }
+    #googft-legend div {
+        margin-bottom: 5px;
+    }
+    .googft-legend-swatch {
+        border: 1px solid;
+        float: left;
+        height: 12px;
+        margin-right: 8px;
+        width: 20px;
+    }
+    .googft-legend-range {
+        margin-left: 0;
+    }
+    .googft-dot-icon {
+        margin-right: 8px;
+    }
+    .googft-paddle-icon {
+        height: 24px;
+        left: -8px;
+        margin-right: -8px;
+        position: relative;
+        vertical-align: middle;
+        width: 24px;
+    }
+    .googft-legend-source {
+        margin-bottom: 0;
+        margin-top: 8px;
+    }
+    .googft-legend-source a {
+        color: #666;
+        font-size: 11px;
+    }
+    .ct-title {
+        color: white;
+        font-weight: bold;
+    }
+    </style>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/infowindow.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+    var map;
+    var layer_ = [];
+    //1FqGIwoYhlY7rLHE8-Nu4fRwQF6gslPKsl8C_6sh-
+    var tableId = ['1STEbQnArsnj5HHbCjqqVJONRMWrCJ_47EsUSUnUj', '1VMKy6uAM3PTT9UhSZQTTBVzZxaEfLp5g6nyy2h6j', '1zw0L4HbIz_dNFko8hxn5fUISMTfY3SbLiQzYlkkr'];
+    var infowindow;
+
+    function initialize() {
+        map = new google.maps.Map(document.getElementById('map-canvas'), {
+            center: new google.maps.LatLng(25.050863, 121.550001),
+            zoom: 13
+        });
+        var style = [{
+            featureType: 'road.local',
+            elementType: 'all',
+            stylers: [{
+                visibility: 'off'
+            }]
+        }, {
+            featureType: 'administrative.country',
+            elementType: 'all',
+            stylers: [{
+                visibility: 'off'
+            }]
+        }, {
+            featureType: 'administrative.province',
+            elementType: 'all',
+            stylers: [{
+                visibility: 'off'
+            }]
+        }];
+        var styledMapType = new google.maps.StyledMapType(style, {
+            map: map,
+            name: 'Styled Map'
+        });
+        map.mapTypes.set('map-style', styledMapType);
+        map.setMapTypeId('map-style');
+        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend-open'));
+        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
+
+        TownName_Json();
+
+        //用迴圈畫三層地圖
+        for (var i = 0; i < tableId.length; i++) {
+            layer_[i] = new google.maps.FusionTablesLayer({
+                query: {
+                    select: "geometry",
+                    from: tableId[i],
+                    where: "County_NAME = '台北市'"
+                },
+                suppressInfoWindows: true,
+                map: map,
+                styleId: 2,
+                templateId: 2
+            });
+            if (i == 0) {
+                suppressInfoWindows: false,
+                layer_[0].setOptions({
+                    query: {
+                        select: "col11\x3e\x3e0",
+                        from: "1STEbQnArsnj5HHbCjqqVJONRMWrCJ_47EsUSUnUj",
+                        where: "col8\x3e\x3e0 \x3e\x3d 1 and col8\x3e\x3e0 \x3c\x3d 120"
+                    }
+                });
+            }
+            layer_[i].setMap(map);
+            //console.log(layer_[i]);
+        }
+
+        google.maps.event.addDomListener(document.getElementById('search-string_0'),
+            'change',
+            function() {
+                if (infowindow) {
+                    infowindow.close();
+                };
+                codeAddress();
+                changeMap_0();
+                layer_[0].setMap(map);
+                //layer_0.setMap(map);
+            });
+        google.maps.event.addListener(layer_[0], 'click', function(e) {
+            var villige = e.row['Villige_NAME'].value;
+            var nodeCol = document.createElement('div');
+            if (infowindow) infowindow.close();
+            else infowindow = new google.maps.InfoWindow();
+            infowindow.setContent('<div class="tabs">' +
+                '<ul class="i8ik">' +
+                '<h4>兩年度綠營支持率差距：<span style="color:#ffff00;font-weight:bold;">' + e.row['支持率差距%'].value + '</span></h4>' +
+                '</ul>' +
+                '<div id="tab-2" style="overflow:hidden;">' + //firts tab content 
+                '<h4><b>' + e.row['Villige_NAME'].value + '</b></h4>' +
+                '<b align="left">2014年選民人數：' + e.row['People'].value + '</b>' +
+                '</br>' +
+                '<div class="tabs">' +
+                '<ul>' +
+                '<li><a href="#DPP"><span>綠營</span></a></li>' + //tabs names
+                '<li><a href="#KMT"><span>藍營</span></a></li>' + //tabs names
+                '</ul>' +
+                '<div id="DPP">' + //First tab content
+                '<table class="tg" style="width:100%;">' +
+                '<tr>' +
+                '<td class="tg-bghc">得票數：</td>' +
+                '<td class="tg-bghc">得票率：</td>' +
+                '<td class="tg-bghc">支持率：</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="tg-lhm3">' + e.row['DPP'].value + '</td>' +
+                '<td class="tg-lhm3">' + e.row['DPP-rate'].value + '</td>' +
+                '<td class="tg-lhm3">' + (e.row['綠營支持率2014'].value * 100).toFixed(2) + '%' + '</td>' +
+                '</tr>' +
+                '</table>' +
+                '</div>' +
+                '<div id="KMT">' + //Second tab content
+                '<table class="tg" style="width:100%;">' +
+                '<tr>' +
+                '<td class="tg-9bfu">得票數：</td>' +
+                '<td class="tg-9bfu">得票率：</td>' +
+                '<td class="tg-9bfu">支持率：</td>' +
+                '</tr>' +
+                '<tr>' +
+                '<td class="tg-1uaf">' + e.row['KMT'].value + '</td>' +
+                '<td class="tg-1uaf">' + e.row['KMT-rate'].value + '</td>' +
+                '<td class="tg-1uaf">' + (e.row['藍營支持率2014'].value * 100).toFixed(2) + '%' + '</td>' +
+                '</tr>' +
+                '</table>' +
+                '</div>' +
+                '</div>'
+            );
+            infowindow.setPosition(e.latLng);
+            infowindow.open(map);
+            $(".tabs").tabs();
+        });
+        infoWindow = new google.maps.InfoWindow();
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function TownName_Json(data) {
+        var query = "SELECT latitude, longitude, " +
+            "COUNTY_ID , County_NAME, TOWN_NAME " +
+            "FROM 1OUevGG1bi9g8ULlTdjvGdkRjy4kYhokkSuNZedG3 ";
+        var where = "County_NAME = '台北市'";
+        if (where) {
+            query += "WHERE " + where;
+        }
+        var queryText = encodeURIComponent(query);
+
+        var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+        url.push('?sql=' + queryText);
+        url.push('&key=AIzaSyDYnfgKBk-W_pXHjuYYSemkPFNFZhGQ-Q0');
+        //url.push('&callback=TownName_Json');
+
+        $.ajax({
+            type: 'GET',
+            url: url.join(''),
+            jsonpCallback: 'jsonCallback',
+            dataType: 'json',
+            success: function(data) {
+                //console.log(data);
+                for (var i = 0; i < data.rows.length; i++) {
+                    var lng = data.rows[i][0];
+                    var lat = data.rows[i][1];
+                    var town = data.rows[i][4];
+                    //console.log(town);
+                    mapLabel = new MapLabel({
+                        minZoom: 9,
+                        text: town,
+                        position: new google.maps.LatLng(lat, lng),
+                        map: map,
+                        fontSize: 16,
+                        fontColor: '#ffff00',
+                        strokeWeight: 5,
+                        strokeColor: '#000000',
+                        zIndex: 2,
+                        align: 'center'
+                    });
+                    mapLabel.set('position', mapLabel.position);
+                }
+                dataLength = data.rows.length;
+                return dataLength;
+            },
+            error: function() {
+                alert("ERROR!!!");
+            }
+        });
+
+    }
+
+    function changeMap_0() {
+        var whereClause = "col8\x3e\x3e0 \x3e\x3d 1 and col8\x3e\x3e0 \x3c\x3d 120";
+        var searchString = document.getElementById('search-string_0').value.replace(/'/g, "\\'");
+        if (searchString != '--Select--') {
+            whereClause = " Villige_NAME IN ('" + searchString + "')";
+        }
+        layer_[0].setOptions({
+            query: {
+                select: "col11\x3e\x3e0",
+                from: "1STEbQnArsnj5HHbCjqqVJONRMWrCJ_47EsUSUnUj",
+                where: whereClause
+            }
+        });
+        /*layer_0.setOptions({
+            query: {
+                select: "col0>>0",
+                from: "1OfVUo8dqelx_HywAz1b2SjKVYf-mZ-KRYMblnPDC",
+                where: whereClause
+            }
+        });*/
+        return whereClause;
+
+    }
+
+    function codeAddress() {
+        var geocoder = new google.maps.Geocoder();
+        var address = document.getElementById("search-string_0").value;
+        geocoder.geocode({
+            'address': address
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    function clearList() {
+        if (infowindow) infowindow.close();
+        document.getElementById("search-string_0").value = "--Select--";
+        changeMap_0();
+    }
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://www.thinkingtaiwan.org/" target="_blank"><img src="../css/logo.png" class="logo">
+                    </a>
+                </li>
+                <hr color=red size=5 align=center width=100%>
+                <div id="prj-title">
+                    <h4 align="center"><strong>小英基金會－選舉地圖專案</strong></h4>
+                </div>
+                <hr color=red size=5 align=center width=100%>
+                <li><span class="ct-title">台北市支持率</span>
+                    <div><a href="../002/001_20150108_TPE120.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                柯P支持率排名前120名</a>
+                    </div>
+                    <div><a href="../002/002_201505015_TPE120.html" class="btn-default active"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                柯P支持率增加前120名</a>
+                    </div>
+                </li>
+                <hr color=gray size=3 align=center width=100%>
+                <li><span class="ct-title">2010＆2014六都選舉分析</span>
+                    <div><a href="../003/004_20150507_2010-2014_suprate.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                六都支持率差距分佈地圖</a>
+                    </div>
+                </li>
+                <li>
+                    <div><a href="../004/003_20150416_2010-2014_votediff_filter.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                六都得票率差距分佈地圖</a>
+                    </div>
+                </li>
+                <hr color=gray size=3 align=center width=100%>
+                <li><span class="ct-title">2010＆2014四都投票分析</span>
+                    <div><a href="../005/001_20150418_2010-2014_comparison.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 四都投票率變化</a>
+                    </div>
+                    <div><a href="../005/003_20150507_4cities_improvement.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 四都支持率進步里</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <a href="#menu-toggle" class="btn btn-default btn-lg" id="menu-toggle"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span> 隱藏選單</a>
+                    <h1>支持率增加前120名地圖</h1>
+                </div>
+                <script type="text/javascript">
+                var query = "SELECT Rank, Villige_NAME, '支持率差距' " +
+                    "FROM 1STEbQnArsnj5HHbCjqqVJONRMWrCJ_47EsUSUnUj ";
+                var where = "WHERE Rank >= 1 {AND Rank <= 120} ORDER BY Rank {ASC} "
+                if (where) {
+                    query += where;
+                }
+                var queryText = encodeURIComponent(query);
+
+                var url = ['https://www.googleapis.com/fusiontables/v1/query'];
+                url.push('?sql=' + queryText);
+                url.push('&key=AIzaSyDYnfgKBk-W_pXHjuYYSemkPFNFZhGQ-Q0');
+                //url.push('&callback=TownName_Json');
+
+                $.ajax({
+                    type: 'GET',
+                    url: url.join(''),
+                    jsonpCallback: 'jsonCallback',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        var txt1 = '<option value="--Select--">--Select--</option>';
+                        $('#search-string_0').append(txt1).addClass('clearList');
+                        for (var i = 0; i < data.rows.length; i++) {
+                            var rank = i + 1;
+                            var villige = data.rows[i][1]
+                            $('.clearList').append(
+                                ' <option value="' + villige + '">&lt;' + rank + '&gt;' + villige + '</option>'
+                            );
+                            console.log(villige);
+                        }
+
+                    },
+                    error: function() {
+                        alert("ERROR!!!");
+                    }
+                });
+                </script>
+
+                <div style="margin-top: 10px;">
+                    <label class="layer-wizard-search-label">
+                        支持率增加前1-120名：
+                        <select id="search-string_0">
+
+                        </select>
+                    </label>
+                    <button type="button" id="button" onclick="clearList();" id="mybutton">Clear</button>
+                    <div id="map-canvas"></div>
+                </div>
+                <div id="googft-mapCanvas"></div>
+                <ol>
+                    <h3>圖表說明：</h3>
+                    <li>以2014年對2010年選舉台北市支持率增加的前120名里排序分為三級級距：
+                        <ul>
+                            <li>（1）0.1～0.117</li>
+                            <li>（2）0.117～0.133</li>
+                            <li>（3）0.133～0.15</li>
+                        </ul>
+                    </li>
+                    <li>點選上方排名選單，地圖會自動移至該里並且只顯示該里區塊</li>
+                    <li>點擊[Clear]按鈕可顯示全部120里分佈地圖</li>
+                    <li>直接點選各里，便會該里詳細得票資訊。</li>
+                </ol>
+                <input id="googft-legend-open" style="display:none" type="button" value="Legend"></input>
+                <div id="googft-legend">
+                    <p id="googft-legend-title">2014-2010支持率差距</p>
+                    <div>
+                        <span class="googft-legend-swatch" style="background-color: rgba(19,79,92,0.5)"></span>
+                        <span class="googft-legend-range">10.0% to 11.7%</span>
+                    </div>
+                    <div>
+                        <span class="googft-legend-swatch" style="background-color: rgba(234,153,153,0.5)"></span>
+                        <span class="googft-legend-range">11.7% to 13.3%</span>
+                    </div>
+                    <div>
+                        <span class="googft-legend-swatch" style="background-color: rgba(204,0,0,0.5)"></span>
+                        <span class="googft-legend-range">13.3% to 15%</span>
+                    </div>
+                    <input id="googft-legend-close" style="display:none" type="button" value="Hide"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <!-- jQuery -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    var tog = 1;
+    $("#menu-toggle").click(function(e) {
+        if (tog == 1) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $('#menu-toggle').html('<span class="glyphicon glyphicon-forward" aria-hidden="true"></span> 開啟選單');
+            tog = 0;
+        } else {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+            $('#menu-toggle').html('<span class="glyphicon glyphicon-backward" aria-hidden="true"></span> 隱藏選單');
+            tog = 1;
+        }
+    });
+    </script>
+</body>
+
+</html>

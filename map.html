@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="台灣2010-2014六都選舉地圖>
+    <meta property="og:description" content="以地圖方式呈現2010-2014年台灣六都的藍綠勢力板塊變化">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://jizz5566.github.io/eng/og-image.png">
+    <title>2010與2014年六都選舉藍綠勢力分佈圖</title>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&language=zh-TW&libraries=geometry"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="css/infowindow.css" rel="stylesheet" media="all" />
+    <style type="text/css">
+    html,
+    body,
+    #map_canvas {
+        /* width: 3508px; */
+        width: auto;
+        position: relative;
+        /* height: 2480px; */
+        top: 10px;
+        height: 800px;
+        margin: 0px;
+        padding: 0px;
+        z-index: 1;
+    }
+    
+    #h3 {
+        position: relative;
+        left: 25px;
+        z-index: 2;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FFF;
+        text-align: left;
+        text-shadow: 0 2px 2px #000;
+        padding: 5px 0;
+    }
+    
+    .county {
+        color: #fff;
+        font-size: 16px;
+        margin: 12px;
+    }
+    
+    #googft-legend {
+        background-color: #fff;
+        border: 1px solid #000;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        margin: 5px;
+        padding: 10px 10px 8px;
+    }
+    
+    #googft-legend p {
+        font-weight: bold;
+        margin-top: 0;
+    }
+    
+    #googft-legend div {
+        margin-bottom: 5px;
+    }
+    
+    .googft-legend-swatch {
+        border: 1px solid;
+        float: left;
+        height: 12px;
+        margin-right: 8px;
+        width: 20px;
+    }
+    
+    .googft-legend-range {
+        margin-left: 0;
+    }
+    
+    .googft-dot-icon {
+        margin-right: 8px;
+    }
+    
+    .googft-paddle-icon {
+        height: 24px;
+        left: -8px;
+        margin-right: -8px;
+        position: relative;
+        vertical-align: middle;
+        width: 24px;
+    }
+    
+    .googft-legend-source {
+        margin-bottom: 0;
+        margin-top: 8px;
+    }
+    
+    .googft-legend-source a {
+        color: #666;
+        font-size: 11px;
+    }
+    
+    .ct-title {
+        color: white;
+        font-weight: bold;
+    }
+    </style>
+    <script type="text/javascript">
+    var map;
+    var layer_ = [];
+    //1FqGIwoYhlY7rLHE8-Nu4fRwQF6gslPKsl8C_6sh-
+    var tableId = ['1lqsAhcETs5M8sY-GF7tYWdq-xLZ_x68iIUDeXIoA', '1PPpjBqOmjtpbGWz-3nZ6RHdNzAQ-rjHYi663OoOL', '1VMKy6uAM3PTT9UhSZQTTBVzZxaEfLp5g6nyy2h6j', '1zw0L4HbIz_dNFko8hxn5fUISMTfY3SbLiQzYlkkr'];
+
+    // 1lqsAhcETs5M8sY-GF7tYWdq-xLZ_x68iIUDeXIoA (2010),'1MYUia1wz4XNWpDQCtXv578RFD2_lstUSP4rGsnTp (2014)
+    // tableId0 = 六都2010各里圖層(ALL); tableId1 = 六都2010各里圖層(filter); tabeleId2 = 六都鄉鎮區圖層 ; tableId3 = 六都縣市圖層
+    var infowindow = new google.maps.InfoWindow();
+    //var mapLabel = new MapLabel();
+    function loadMap(myLatLng) {
+        for (var i = 0; i < tableId.length; i++) {
+            layer_[i] = new google.maps.FusionTablesLayer({
+                query: {
+                    select: "geometry",
+                    from: tableId[i]
+                },
+                suppressInfoWindows: true,
+                map: map,
+                styleId: 2,
+                templateId: 2
+            });
+            if (i == 0) {
+                layer_[0].styleId = 3;
+                layer_[0].templateId = 3;
+            }
+            layer_[i].setMap(map);
+            //console.log(layer_[i]);
+        }
+        //map.setCenter(myLatLng);
+        //map.setZoom(10);
+    }
+
+    function initialize() {
+        var myLatLng = new google.maps.LatLng(24.97592870964595, 121.48632444044824);
+        map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: myLatLng,
+            zoom: 10,
+            panControl: false,
+            scaleControl: false,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.LARGE,
+                position: google.maps.ControlPosition.TOP_LEFT
+            },
+            mapTypeControl: false
+        });
+        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('slider-bar'));
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend'));
+
+        var style = [{
+            featureType: 'all',
+            elementType: 'all',
+            stylers: [{
+                "saturation": -75
+            }, {
+                "gamma": 1.87
+            }, {
+                "visibility": "simplified"
+            }, {
+                "weight": 0.6
+            }]
+        }];
+        var styledMapType = new google.maps.StyledMapType(style, {
+            map: map,
+            name: 'Styled Map'
+        });
+        map.mapTypes.set('map-style', styledMapType);
+        map.setMapTypeId('map-style');
+        // Replace the xxx with your Fusion Tables IDs.
+        //You can use FT Wizard http://fusion-tables-api-samples.googlecode.com/svn/trunk/FusionTablesLayerWizard/src/index.html
+        loadMap(myLatLng);
+
+
+        //用迴圈畫三層地圖
+        
+        for (var i = 0; i < 2; i++) {
+            google.maps.event.addListener(layer_[i], 'click', function(e) {
+                votes = [Number(e.row['DPP'].value), Number(e.row['KMT'].value), Number(e.row['OTR'].value)];
+                rates = [Number((e.row['DPP'].value / e.row['Votes'].value * 100).toFixed(2)), Number((e.row['KMT'].value / e.row['Votes'].value * 100).toFixed(2)), Number((e.row['OTR'].value / e.row['Votes'].value * 100).toFixed(2))]
+                dpp = votes[0], dpp2 = rates[0];
+                kmt = votes[1], kmt2 = rates[1];
+                otr = votes[2], otr2 = rates[2];
+                $(function() {
+                    Highcharts.setOptions({
+                        colors: ['#00C800', '#0000FF', '#ADADAD']
+                    });
+                    $('#container').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: e.row['Villige_NAME'].value + "候選人得票數"
+                        },
+                        xAxis: {
+                            categories: [
+                                tableidselections + '年地方選舉'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: '得票數 (票)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.0f} 票</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: '綠營',
+                            data: [dpp]
+                        }, {
+                            name: '藍營',
+                            data: [kmt]
+                        }, {
+                            name: '其他陣營',
+                            data: [otr]
+                        }]
+                    });
+                    $('#container2').highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: e.row['Villige_NAME'].value + "得票率分佈"
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.2f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            name: "政黨陣營",
+                            colorByPoint: true,
+                            data: [{
+                                name: '綠營',
+                                y: dpp2,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: '藍營',
+                                y: kmt2
+                            }, {
+                                name: '其他陣營',
+                                y: otr2
+                            }]
+                        }]
+                    });
+                });
+                //if (infowindow) infowindow.close();
+                document.getElementById("year").innerHTML = '<h3>' + tableidselections + '年選舉結果</h3>';
+                document.getElementById("table").innerHTML = 
+                    '<table class="tg" align="center" style="width:280px;">' +
+                    '<tr>' +
+                    '<th class="tg-i8ik" colspan="3">' + e.row['County_NAME'].value + '</th>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td class="tg-hgcj">區里名：</td>' +
+                    '<td class="tg-s6z2" id="villige" colspan="2">' + e.row['Villige_NAME'].value + '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td class="tg-hgcj">' + tableidselections + '選舉人數：</td>' +
+                    '<td class="tg-s6z2" colspan="2">' + e.row['People'].value + '人</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td class="tg-hgcj">投票率：</td>' +
+                    '<td class="tg-s6z2" style="font-weight:bold; font-size:16px;">' + (e.row['Votes'].value / e.row['People'].value * 100).toFixed(2) + '%' + '</td>' +
+                    '</tr>' +
+                    '</table>';
+                //$('#table').insertAfter('#map_canvas');    
+                //alert(table);
+                //alert(e.latLng);
+                map.setCenter(e.latLng);
+            });
+
+        };
+
+        //點擊infowindow的內容用迴圈來跑
+
+        tableidselections = 2010;
+
+
+        infowindow = new google.maps.InfoWindow();
+
+        var CountyCheck = ['TPE', 'XBE', 'TAO', 'TCH', 'TNA', 'KSH'];
+        //alert(CountyCheck.length);
+        for (var i = 0; i < CountyCheck.length; i++) {
+            google.maps.event.addDomListener(document.getElementById(CountyCheck[i]),
+                'click',
+                function() {
+                    if (infowindow) infowindow.close();
+                    //ClearJson(mapLabel);
+                    //TownName_Json();
+                    filterMap(layer_, tableId, map);
+                });
+
+        }
+
+        function Geojson(tableId) {
+            var query = "SELECT latitude, longitude, " +
+                "COUNTY_ID , County_NAME, TOWN_NAME " +
+                "FROM 1OUevGG1bi9g8ULlTdjvGdkRjy4kYhokkSuNZedG3 ";
+            var where = generateWhere();
+            if (where) {
+                query += "WHERE " + where;
+            }
+            var queryText = encodeURIComponent(query);
+
+            var url = ['https://www.googleapis.com/fusiontables/v2/query'];
+            url.push('?sql=' + queryText);
+            url.push('&key=AIzaSyDYnfgKBk-W_pXHjuYYSemkPFNFZhGQ-Q0');
+            //url.push('&callback=TownName_Json');
+
+            $.ajax({
+                type: 'GET',
+                url: url.join(''),
+                jsonpCallback: 'jsonCallback',
+                dataType: 'json',
+                success: function(data) {
+                    //console.log(data);
+                    dataLength = data.rows.length;
+                    for (var i = 0; i < dataLength; i++) {
+                        var lng = data.rows[i][0];
+                        var lat = data.rows[i][1];
+                        var town = data.rows[i][4];
+                        mapLabel = new MapLabel({
+                            minZoom: 9,
+                            text: town,
+                            position: new google.maps.LatLng(lat, lng),
+                            map: map,
+                            fontSize: 16,
+                            fontColor: '#ffff00',
+                            strokeWeight: 5,
+                            strokeColor: '#000000',
+                            zIndex: 2,
+                            align: 'center'
+                        });
+                        mapLabel.set('position', mapLabel.position);
+                    }
+                    dataLength = data.rows.length;
+                    return dataLength;
+                },
+                error: function() {
+                    alert("ERROR!!!");
+                }
+            });
+        }
+
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    var dataLength;
+
+    function filterMap(layer_, tableId, map) {
+        var where = generateWhere();
+        for (var i = 0; i < tableId.length; i++) {
+            if (where) {
+                if (!layer_[0].getMap()) {
+                    layer_[i].setMap(map);
+                }
+                layer_[0].setOptions({
+                    query: {
+                        select: 'geometry',
+                        from: tableId[i],
+                        where: where
+                    },
+                    styleId: 3,
+                    templateId: 3,
+                    map: map
+                });
+                for (var i = 1; i < tableId.length; i++) {
+                    if (!layer_[i].getMap()) {
+                        layer_[i].setMap(map);
+                    }
+                    layer_[i].setOptions({
+                        query: {
+                            select: 'geometry',
+                            from: tableId[i],
+                            where: where
+                        }
+                        /*styleId: 2,
+                        templateId: 2
+                        map: map*/
+                    });
+                };
+            } else {
+                for (var i = 0; i < tableId.length; i++) {
+                    layer_[i].setMap(null);
+                };
+            }
+        }
+    }
+
+
+    function changeLayer(tableidselections) {
+
+        if (tableidselections == 2010) {
+            tableId[0] = '1lqsAhcETs5M8sY-GF7tYWdq-xLZ_x68iIUDeXIoA';
+            tableId[1] = '1PPpjBqOmjtpbGWz-3nZ6RHdNzAQ-rjHYi663OoOL';
+            infowindow.close();
+            clearmap(layer_);
+            filterMap(layer_, tableId, map);
+        }
+
+        if (tableidselections == 2014) {
+            tableId[0] = '1MYUia1wz4XNWpDQCtXv578RFD2_lstUSP4rGsnTp';
+            tableId[1] = '1FqGIwoYhlY7rLHE8-Nu4fRwQF6gslPKsl8C_6sh-';
+            infowindow.close();
+            clearmap(layer_);
+            filterMap(layer_, tableId, map);
+        }
+
+
+    }
+
+    function clearmap(layer_) {
+        for (var i = 0; i < tableId.length; i++) {
+            if (layer_[i] != null) {
+                layer_[i].setMap(null);
+            }
+        };
+    }
+
+    function generateWhere() {
+        var filter = [];
+        var stores = document.getElementsByName('store');
+        for (var i = 0, store; store = stores[i]; i++) {
+            if (store.checked) {
+                var storeName = store.value.replace(/'/g, '\\\'');
+                filter.push("'" + storeName + "'");
+            }
+        }
+        var where = '';
+        if (filter.length) {
+            where = "COUNTY_ID IN (" + filter.join(',') + ')';
+        }
+        //alert(where);
+        return where;
+    }
+    </script>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900%7CQuicksand:400,700%7CQuestrial" rel="stylesheet" />
+    <!-- <link href="http://piotrkrosniak.github.io/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="http://piotrkrosniak.github.io/fonts.css" rel="stylesheet" type="text/css" media="all" /> -->
+    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+</head>
+
+<body>
+    <div class="col-md-12">
+        <h1>2010與2014年六都選舉得票率差距</h1>
+        <nav id="slider-bar" class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <div class="col-md-4">
+                            <div id="slider">
+                                <h3 id="h3">按鈕切換年度（2010-2014）</h3>
+                                <button type="button" name="store" id="0" value="2010" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2010</button>
+                                <button type="button" name="store" id="1" value="2014" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2014</button>
+                            </div>
+                            <script>
+                            $(function() {
+                                $('.btn').click(function() {
+                                    var ID = $(this).attr('id');
+                                    tableidselections = $(this).attr('value');
+                                    if (infowindow) infowindow.close();
+                                    changeLayer(tableidselections, tableId);
+                                });
+                            });
+                            </script>
+                            <div class=navbar-header>
+                                <!-- <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> -->
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <ul class="nav navbar-nav" style="margin-top:15px;">
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="TPE" value="63"> 台北市
+                                </label>
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="XBE" value="65"> 新北市
+                                </label>
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="TAO" value="68"> 桃園市
+                                </label>
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="TCH" value="66"> 台中市
+                                </label>
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="TNA" value="67"> 台南市
+                                </label>
+                                <label class="county">
+                                    <input type="checkbox" class="county" checked="checked" name="store" id="KSH" value="64"> 高雄市
+                                </label>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="col-md-12">
+            <div class="col-md-8">
+                <div id="map_canvas"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="year" style="width:100%;" align="center"></div>
+                <div id="table" style="width:100%;  margin: 0 auto"></div>
+                <div id="container" style="mid-width: 280px; height: 300px; margin: 0 auto"></div>
+                <div id="container2" style="mid-width: 280px; height: 300px; margin: 0 auto"></div>
+            </div>
+            <p></p>
+            <input id="googft-legend-open" style="display:none" type="button" value="Legend"></input>
+            <div id="googft-legend">
+                <p id="googft-legend-title">得票率差距</p>
+                <div>
+                    <span class="googft-legend-swatch" style="background-color: #6A30FF"></span>
+                    <span class="googft-legend-range">藍大於綠 5％以上</span>
+                </div>
+                <div>
+                    <span class="googft-legend-swatch" style="background-color: #89A7FF"></span>
+                    <span class="googft-legend-range">藍大於綠 5％以下</span>
+                </div>
+                <div>
+                    <span class="googft-legend-swatch" style="background-color: #99B28E"></span>
+                    <span class="googft-legend-range">綠大於藍 5％以下</span>
+                </div>
+                <div>
+                    <span class="googft-legend-swatch" style="background-color: #76866C"></span>
+                    <span class="googft-legend-range">綠大於藍 5％以上</span>
+                </div>
+                <input id="googft-legend-close" style="display:none" type="button" value="Hide"></input>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <!-- Page Content -->
+    </div>
+    <!-- Menu Toggle Script -->
+</body>
+
+</html>

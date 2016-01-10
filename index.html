@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    #map-canvas {
+        width: auto;
+        height: 600px;
+    }
+    .layer-wizard-search-label {
+        font-family: sans-serif
+    }
+    #googft-legend {
+        background-color: #fff;
+        border: 1px solid #000;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        margin: 5px;
+        padding: 10px 10px 8px;
+    }
+    #googft-legend p {
+        font-weight: bold;
+        margin-top: 0;
+    }
+    #googft-legend div {
+        margin-bottom: 5px;
+    }
+    .googft-legend-swatch {
+        border: 1px solid;
+        float: left;
+        height: 12px;
+        margin-right: 8px;
+        width: 20px;
+    }
+    .googft-legend-range {
+        margin-left: 0;
+    }
+    .googft-dot-icon {
+        margin-right: 8px;
+    }
+    .googft-paddle-icon {
+        height: 24px;
+        left: -8px;
+        margin-right: -8px;
+        position: relative;
+        vertical-align: middle;
+        width: 24px;
+    }
+    .googft-legend-source {
+        margin-bottom: 0;
+        margin-top: 8px;
+    }
+    .googft-legend-source a {
+        color: #666;
+        font-size: 11px;
+    }
+    .ct-title {
+        color: white;
+        font-weight: bold;
+    }
+    </style>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://www.thinkingtaiwan.org/" target="_blank"><img src="css/logo.png" class="logo">
+                    </a>
+                </li>
+                <hr color=red size=5 align=center width=100%>
+                <div id="prj-title">
+                <h4 align="center"><strong>小英基金會－選舉地圖專案</strong></h4>    
+                </div>
+                <hr color=red size=5 align=center width=100%>
+                <li ><span class="ct-title">台北市支持率</span>
+                <div><a href="002/001_20150108_TPE120.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                柯P支持率排名前120名</a></div>
+                <div><a href="002/002_201505015_TPE120.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                柯P支持率增加前120名</a>
+                    </div>
+                </li>
+                <hr color=gray size=3 align=center width=100%>
+                <li ><span class="ct-title">2010＆2014六都選舉分析</span>
+                <div><a href="003/004_20150507_2010-2014_suprate.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                六都支持率差距分佈地圖</a></div>
+                </li>
+                <li>
+                <div><a href="004/003_20150416_2010-2014_votediff_filter.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 
+                六都得票率差距分佈地圖</a></div>
+                </li>
+                <hr color=gray size=3 align=center width=100%>
+                <li><span class="ct-title">2010＆2014四都投票分析</span>
+                    <div><a href="005/001_20150418_2010-2014_comparison.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 四都投票率變化</a>
+                    </div>
+                    <div><a href="005/003_20150507_4cities_improvement.html"><span class="glyphicon glyphicon-thumbs-up btn btn-lg"></span> 四都支持率進步里</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="100%" height="100%" frameborder="0" src="http://www.thinkingtaiwan.org/" scrolling="auto" />
+            </div>
+            <div class="container-fluid"></div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+
+</body>
+
+</html>

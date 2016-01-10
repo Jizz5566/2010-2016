@@ -1,0 +1,105 @@
+.tabs {
+    height: 120px;
+    width: 300px;
+    overflow-y: hidden
+}
+.tabs {
+    background: transparent;
+    border: none;
+}
+.tabs .ui-widget-header {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #c0c0c0;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.tabs .ui-tabs-nav .ui-state-default {
+    background: transparent;
+    border: none;
+}
+.tabs .ui-tabs-nav .ui-state-active {
+    background: transparent url(uiTabsArrow.png) no-repeat bottom center;
+    border: none;
+}
+.tabs .ui-tabs-nav .ui-state-default a {
+    color: #c0c0c0;
+}
+.tabs .ui-tabs-nav .ui-state-active a {
+    color: #459e00;
+}
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.tg td {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    padding: 3px 2px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg th {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    padding: 3px 2px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg .tg-s6z2 {
+    text-align: center
+}
+#villige {
+    font-size: 12px;
+}
+.tg .tg-bghc {
+    font-weight: bold;
+    background-color: #329900;
+    color: #ffffff;
+    text-align: center
+}
+.tg .tg-i8ik {
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #963400;
+    color: #ffffff;
+    text-align: center
+}
+.tg .tg-hgcj {
+    font-weight: bold;
+    text-align: center
+}
+.tg .tg-9bfu {
+    font-weight: bold;
+    background-color: #0000ff;
+    color: #ffffff;
+    text-align: center
+}
+.tg .tg-465v {
+    font-weight: bold;
+    background-color: #9b9b9b;
+    color: #ffffff;
+    text-align: center
+}
+.tg .tg-lhm3 {
+    background-color: #bcf6bb;
+    text-align: right
+}
+.tg .tg-1uaf {
+    background-color: #bbdaff;
+    text-align: right
+}
+.tg .tg-9vst {
+    background-color: #efefef;
+    text-align: right
+}
+.tg .tg-iw8u {
+    background-color: #bbdaff;
+    text-align: right
+}

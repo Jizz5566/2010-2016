@@ -1,0 +1,57 @@
+[33mcommit dfc228ca7cf31e2405c8ca303a9e0e91b62ca46a[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Tue May 5 22:10:07 2015 +0800
+
+    0505 套用bootstrap框架，取消frameset的框架頁
+    衍生問題：sidebar連結頁每新增一項目，全部頁面就要隨著更新，目前考慮結合frameset與BS框架，每更新連結項目只要一次就好。
+
+[33mcommit e0ec04eafafa73986a71fc4dee9802e28689c9e8[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Tue May 5 01:36:27 2015 +0800
+
+    rebuild bt-sidebar branch
+
+[33mcommit df9f5e3f6982a5f66c4b8974138a008b83799936[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Tue May 5 01:16:15 2015 +0800
+
+    20150504
+    1. 將bootstrap框架導入首頁，支援RWD與模擬frameset的框架頁作為成果展示首頁
+    2. 修改部份網頁元件：年度切換slidebar與checkbox
+    3. 修正部份功能issue
+    4. 整合過去選舉資料（投票率得票率支持率等）在同一個頁面
+    
+    問題：menu每更新一次，所有頁面都要全部更新，沒有sidebar頁面來得方便
+
+[33mcommit 2977b5f58a58b871772f4d27105fbb810466beda[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Thu Apr 30 15:05:29 2015 +0800
+
+    20150430 加入index框架頁與與其連結頁面
+    修改部份：
+    [004_20150418_2010-2014_votecompare.html] 鄉鎮區名稱改由Ftable的API去抓取
+
+[33mcommit 5bfcfe83fb2b129f4d2564ad196ccfbffd6ec45b[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Wed Apr 29 22:01:01 2015 +0800
+
+    reupload gh-pages
+
+[33mcommit 2ddfb3a86899d6467f43af5e7fa807638806a43f[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Wed Apr 29 21:46:12 2015 +0800
+
+    新增gh-pages網頁分支
+
+[33mcommit b0bbf493b1082a490a9ea1b70226d9b6452ed427[m
+Author: Jizz5566 <jimc.dvm@gmail.com>
+Date:   Wed Apr 29 20:18:34 2015 +0800
+
+    以往搖擺里地圖彙整，粗分五階段作品
+    01.以台北市為分析案例，淨得票率成長前120名
+    02.以台北市為分析案例，分析支持率成長前120名
+    03.以六都為分析案例，比較2010-2014的支持率
+    04.以六都為分析案例，比較2010-2014的得票率
+    05.以四都為分析案例，比較2010-2014的投票率
+    
+    Signed-off-by: Jizz5566 <jimc.dvm@gmail.com>
