@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TW Map 2020</title>
+        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="./js/topojson.js"></script>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+          html,
+          body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          
+          #map {
+            height: 100%;
+            width: 100%;
+            background: #000;
+          }
+          </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h2 id="content" class="text-muted">縣市鄉鎮</h2>
+        <div id="detail" class="col-md-12"></div>
+        <div id="map"></div>
+        <script src="./js/topojson.js"></script>
+
+        <script>
+        $.ajaxSetup({async: false});
+
+        var map, town, area={}, header;
+       
+        function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: {lat: 23.858987, lng:120.917631},
+                    styles: [{
+                        featureType:'administrative',
+                        elementType:'geometry.stroke',
+                        stylers: [{
+                        color: '#0000ff'
+                        },
+                        {
+                            Weight: '4.00'
+                        }]
+                    }]
+                });
+
+                map.data.loadGeoJson('town3.json');
+
+                map.data.setStyle({
+                    strokeWeight: 1,
+                    strokeOpacity: .5,
+                    strokeColor: '#000'
+                });
+                
+                var infowindow = new google.maps.InfoWindow();
+
+
+                map.data.addListener('mouseover', function(event) {
+                    map.data.revertStyle();
+                    map.data.overrideStyle(event.feature, {fillColor: '#ff0'});
+                    var coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
+                    infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
+                    var name = event.feature.getProperty('COUNTYNAME') + event.feature.getProperty('TOWNNAME'); // 設定資訊視窗的內容為行政區名稱
+                    infowindow.setContent('<h3>'+name+'</h3>'); // 將資訊視窗打開在地圖上
+                    infowindow.open(map);
+                    //$('#content').html('<div>' + name +'</div>') .removeClass('text-muted');
+                });
+
+                map.data.addListener('mouseout', function(event) {
+                    map.data.revertStyle();
+                });
+
+                $.getJSON('2016.json', function (data) {
+                   TW2016 = data;
+                });
+                
+                TW2016.forEach(function (value) {
+                        var key = value.TownCode;
+                        //console.log(key);        
+                    });
+                map.data.addListener('click',  function(event) {
+                    infowindow.close(map);
+                    var townkey=parseInt(event.feature.getProperty('TOWNCODE'))  ,
+                        townname = event.feature.getProperty('TOWNNAME'),
+                        countyname = event.feature.getProperty('COUNTYNAME');
+                        var content = '<div class="clearfix"></div><hr /><h3>' + countyname + '</h3>';
+                        var chartCategories = [], incomes = [], expenses = [];
+                    for (k in townkey) {
+                        //content += '<td>' + countyname + '</td>';
+                        console.log(k);  
+                    }
+                    var KMT, DPP, PFP;
+                    //console.log(TW2016[town].DPP);
+                                                                
+                    coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
+                    infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
+                    infowindow.setContent('XXX:'+content); // 將資訊視窗打開在地圖上
+                    infowindow.open(map);
+                //$('#detail').html('<div>' + countyname + townname + '：' + KMT ) + '</div>').removeClass('col-md-12');
+
+                });
+                
+
+
+               
+                //infowindow.setContent(name); // 將資訊視窗打開在地圖上
+                //infowindow.setContent('<h2>'+name+'</h2>'); // 將資訊視窗打開在地圖上
+                //infowindow.open(map);
+                };
+        </script>
+        
+        
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="//code.highcharts.com/stock/highstock.js"></script>
+        <script src="//code.highcharts.com/stock/modules/exporting.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtScIMXFIVWi2gAGtulwqyLMz0sa88L0&callback=initMap"></script>
+    </body>
+</html>
