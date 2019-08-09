@@ -85,31 +85,22 @@
                     map.data.revertStyle();
                 });
 
+                var key, KMT, DPP, PFP;
+                
                 $.getJSON('2016.json', function (data) {
                    TW2016 = data;
                 });
                 
-                TW2016.forEach(function (value) {
-                        var key = value.TownCode;
-                        //console.log(key);        
-                    });
                 map.data.addListener('click',  function(event) {
                     infowindow.close(map);
                     var townkey=parseInt(event.feature.getProperty('TOWNCODE'))  ,
                         townname = event.feature.getProperty('TOWNNAME'),
                         countyname = event.feature.getProperty('COUNTYNAME');
-                        var content = '<div class="clearfix"></div><hr /><h3>' + countyname + '</h3>';
-                        var chartCategories = [], incomes = [], expenses = [];
-                    for (k in townkey) {
-                        //content += '<td>' + countyname + '</td>';
-                        console.log(k);  
-                    }
-                    var KMT, DPP, PFP;
-                    //console.log(TW2016[town].DPP);
-                                                                
+                        var content = '<div class="clearfix"><h3>' + townname +'</h3></div><hr /><h3>' + TW2016[townkey] +'</h3>';
+                                                                                   
                     coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
                     infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
-                    infowindow.setContent('XXX:'+content); // 將資訊視窗打開在地圖上
+                    infowindow.setContent(content); // 將資訊視窗打開在地圖上
                     infowindow.open(map);
                 //$('#detail').html('<div>' + countyname + townname + '：' + KMT ) + '</div>').removeClass('col-md-12');
 
