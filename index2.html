@@ -15,17 +15,15 @@
         <link rel="stylesheet" href="">
         <style>
           html,
-          body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-          }
-          
+          body,          
           #map {
-            height: 100%;
-            width: 100%;
-            background: #000;
+            width: auto;
+            position: relative;
+            top: 10px;
+            height: 800px;
+            margin: 0px;
+            padding: 0px;
+            z-index: 1;
           }
           </style>
     </head>
@@ -34,14 +32,22 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h2 id="content" class="text-muted">縣市鄉鎮</h2>
-        <div id="detail" class="col-md-12"></div>
-        <div id="map"></div>
+    <div class="col-md-12">
+        <div class="col-md-8">
+            <div id="map"></div>
+        </div>
+        <div class="col-md-4">
+            <div id="year" style="width:100%;" align="center"></div>
+            <div id="table" style="width:100%;  margin: 0 auto"></div>
+            <div id="container" style="mid-width: 280px; height: 300px; margin: 0 auto"></div>
+            <div id="container2" style="mid-width: 280px; height: 300px; margin: 0 auto"></div>
+        </div>
+    </div>
         <script src="./js/topojson.js"></script>
 
-        <script>
+    <script>
         $.ajaxSetup({async: false});
-
-        var map, town, area={}, header;
+        var map, town, TW2016=[];
        
         function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -84,20 +90,138 @@
                 map.data.addListener('mouseout', function(event) {
                     map.data.revertStyle();
                 });
-
-                var key, KMT, DPP, PFP;
+                
+                var content, key, KMT, DPP, PFP;
                 
                 $.getJSON('2016.json', function (data) {
                    TW2016 = data;
                 });
-                
+                              
                 map.data.addListener('click',  function(event) {
                     infowindow.close(map);
-                    var townkey=parseInt(event.feature.getProperty('TOWNCODE'))  ,
+                    var votes, people, valid;
+                    var townkey = event.feature.getProperty('TOWNCODE') ,
                         townname = event.feature.getProperty('TOWNNAME'),
                         countyname = event.feature.getProperty('COUNTYNAME');
-                        var content = '<div class="clearfix"><h3>' + townname +'</h3></div><hr /><h3>' + TW2016[townkey] +'</h3>';
-                                                                                   
+                        key = countyname +townname
+                        if (TW2016[townkey]) {
+                            TW2016[townkey].forEach(function (val) {
+                                    votes = val.Votes,
+                                    Vpeople = val.ValidPeople,
+                                    Vvotes = val.ValidVotes,
+                                    KMT = val.KMT,
+                                    DPP = val.DPP,
+                                    PFP = val.PFP,
+                                    DPP2 = Number(( DPP / Vvotes * 100).toFixed(2)),
+                                    KMT2 = Number(( KMT / Vvotes * 100).toFixed(2)),
+                                    PFP2 = Number(( PFP / Vvotes * 100).toFixed(2));
+                            });
+                        }
+                        content = 
+                        '<table class="tg" align="center" style="width:280px;">' +
+                        '<tr>' +
+                        '<th class="tg-i8ik" colspan="3">' + countyname+ townname + '</th>' +
+                        '</tr>' +
+                        '<td class="tg-hgcj">' + '2016選舉人數：</td>' +
+                        '<td class="tg-s6z2" colspan="2">' + Vpeople + '人</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td class="tg-hgcj">投票率：</td>' +
+                        '<td class="tg-s6z2" style="font-weight:bold; font-size:16px;">' + (Vvotes / Vpeople * 100).toFixed(2) + '%' + '</td>' +
+                        '</tr>' +
+                        '</table>'; 
+                $(function() {
+                        Highcharts.setOptions({
+                            colors: ['#00C800', '#0000FF', '#FF6207']
+                        });
+                    $('#container').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: key + "候選人得票數"
+                        },
+                        xAxis: {
+                            categories: [
+                                '2016年藍綠得票比較'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: '得票數 (票)'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.0f} 票</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: '民進黨',
+                            data: [DPP]
+                        }, {
+                            name: '國民黨',
+                            data: [KMT]
+                        }, {
+                            name: '親民黨',
+                            data: [PFP]
+                        }]
+                    });
+                    $('#container2').highcharts({
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: townname + "得票率分佈"
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.2f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+                        series: [{
+                            name: "政黨陣營",
+                            colorByPoint: true,
+                            data: [{
+                                name: '民進黨',
+                                y: DPP2,
+                                sliced: true,
+                                selected: true
+                            }, {
+                                name: '國民黨',
+                                y: KMT2
+                            }, {
+                                name: '親民黨',
+                                y: PFP2
+                            }]
+                        }]
+                        });
+                });        
                     coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
                     infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
                     infowindow.setContent(content); // 將資訊視窗打開在地圖上
@@ -107,7 +231,7 @@
                 });
                 
                 };
-        </script>
+    </script>
         
         
         
