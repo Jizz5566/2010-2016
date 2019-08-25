@@ -1,0 +1,1908 @@
+{
+   "63000010": [
+      {
+         "CountyCode": 63000,
+         "County": "松山區",
+         "KMT": 45353,
+         "DPP": 54812,
+         "PFP": 11710,
+         "ValidVotes": 111875,
+         "Votes": 113652,
+         "ValidPeople": 166040
+      }
+   ],
+   "63000020": [
+      {
+         "CountyCode": 63000,
+         "County": "信義區",
+         "KMT": 50633,
+         "DPP": 60817,
+         "PFP": 13549,
+         "ValidVotes": 124999,
+         "Votes": 126920,
+         "ValidPeople": 188428
+      }
+   ],
+   "63000030": [
+      {
+         "CountyCode": 63000,
+         "County": "大安區",
+         "KMT": 69737,
+         "DPP": 76278,
+         "PFP": 16442,
+         "ValidVotes": 162457,
+         "Votes": 165254,
+         "ValidPeople": 247946
+      }
+   ],
+   "63000040": [
+      {
+         "CountyCode": 63000,
+         "County": "中山區",
+         "KMT": 43333,
+         "DPP": 69001,
+         "PFP": 13195,
+         "ValidVotes": 125529,
+         "Votes": 127278,
+         "ValidPeople": 190398
+      }
+   ],
+   "63000050": [
+      {
+         "CountyCode": 63000,
+         "County": "中正區",
+         "KMT": 33780,
+         "DPP": 41640,
+         "PFP": 9015,
+         "ValidVotes": 84435,
+         "Votes": 85809,
+         "ValidPeople": 126706
+      }
+   ],
+   "63000060": [
+      {
+         "CountyCode": 63000,
+         "County": "大同區",
+         "KMT": 19312,
+         "DPP": 45920,
+         "PFP": 7257,
+         "ValidVotes": 72489,
+         "Votes": 73425,
+         "ValidPeople": 106187
+      }
+   ],
+   "63000070": [
+      {
+         "CountyCode": 63000,
+         "County": "萬華區",
+         "KMT": 37911,
+         "DPP": 60566,
+         "PFP": 11239,
+         "ValidVotes": 109716,
+         "Votes": 111240,
+         "ValidPeople": 162242
+      }
+   ],
+   "63000080": [
+      {
+         "CountyCode": 63000,
+         "County": "文山區",
+         "KMT": 65560,
+         "DPP": 63903,
+         "PFP": 16856,
+         "ValidVotes": 146319,
+         "Votes": 148954,
+         "ValidPeople": 218533
+      }
+   ],
+   "63000090": [
+      {
+         "CountyCode": 63000,
+         "County": "南港區",
+         "KMT": 23860,
+         "DPP": 34593,
+         "PFP": 7703,
+         "ValidVotes": 66156,
+         "Votes": 67169,
+         "ValidPeople": 98612
+      }
+   ],
+   "63000100": [
+      {
+         "CountyCode": 63000,
+         "County": "內湖區",
+         "KMT": 57500,
+         "DPP": 77297,
+         "PFP": 17327,
+         "ValidVotes": 152124,
+         "Votes": 154583,
+         "ValidPeople": 227339
+      }
+   ],
+   "63000110": [
+      {
+         "CountyCode": 63000,
+         "County": "士林區",
+         "KMT": 51581,
+         "DPP": 93585,
+         "PFP": 15348,
+         "ValidVotes": 160514,
+         "Votes": 162745,
+         "ValidPeople": 236358
+      }
+   ],
+   "63000120": [
+      {
+         "CountyCode": 63000,
+         "County": "北投區",
+         "KMT": 47931,
+         "DPP": 78971,
+         "PFP": 14163,
+         "ValidVotes": 141065,
+         "Votes": 143189,
+         "ValidPeople": 207197
+      }
+   ],
+   "64000010": [
+      {
+         "CountyCode": 64000,
+         "County": "鹽埕區",
+         "KMT": 3997,
+         "DPP": 10262,
+         "PFP": 1467,
+         "ValidVotes": 14841,
+         "Votes": 15012,
+         "ValidPeople": 21501
+      }
+   ],
+   "64000020": [
+      {
+         "CountyCode": 64000,
+         "County": "鼓山區",
+         "KMT": 22179,
+         "DPP": 43754,
+         "PFP": 7842,
+         "ValidVotes": 72676,
+         "Votes": 73560,
+         "ValidPeople": 108616
+      }
+   ],
+   "64000030": [
+      {
+         "CountyCode": 64000,
+         "County": "左營區",
+         "KMT": 33909,
+         "DPP": 54300,
+         "PFP": 11952,
+         "ValidVotes": 99270,
+         "Votes": 100446,
+         "ValidPeople": 151595
+      }
+   ],
+   "64000040": [
+      {
+         "CountyCode": 64000,
+         "County": "楠梓區",
+         "KMT": 26817,
+         "DPP": 57284,
+         "PFP": 10566,
+         "ValidVotes": 94667,
+         "Votes": 95750,
+         "ValidPeople": 141898
+      }
+   ],
+   "64000050": [
+      {
+         "CountyCode": 64000,
+         "County": "三民區",
+         "KMT": 49489,
+         "DPP": 122668,
+         "PFP": 19453,
+         "ValidVotes": 191610,
+         "Votes": 193703,
+         "ValidPeople": 281357
+      }
+   ],
+   "64000060": [
+      {
+         "CountyCode": 64000,
+         "County": "新興區",
+         "KMT": 8346,
+         "DPP": 17932,
+         "PFP": 2901,
+         "ValidVotes": 29179,
+         "Votes": 29534,
+         "ValidPeople": 43798
+      }
+   ],
+   "64000070": [
+      {
+         "CountyCode": 64000,
+         "County": "前金區",
+         "KMT": 4675,
+         "DPP": 9848,
+         "PFP": 1619,
+         "ValidVotes": 15626,
+         "Votes": 15822,
+         "ValidPeople": 23744
+      }
+   ],
+   "64000080": [
+      {
+         "CountyCode": 64000,
+         "County": "苓雅區",
+         "KMT": 28380,
+         "DPP": 60004,
+         "PFP": 10089,
+         "ValidVotes": 97981,
+         "Votes": 99283,
+         "ValidPeople": 145576
+      }
+   ],
+   "64000090": [
+      {
+         "CountyCode": 64000,
+         "County": "前鎮區",
+         "KMT": 27045,
+         "DPP": 68743,
+         "PFP": 10817,
+         "ValidVotes": 106605,
+         "Votes": 107832,
+         "ValidPeople": 157952
+      }
+   ],
+   "64000100": [
+      {
+         "CountyCode": 64000,
+         "County": "旗津區",
+         "KMT": 2906,
+         "DPP": 11022,
+         "PFP": 1340,
+         "ValidVotes": 15268,
+         "Votes": 15454,
+         "ValidPeople": 24003
+      }
+   ],
+   "64000110": [
+      {
+         "CountyCode": 64000,
+         "County": "小港區",
+         "KMT": 18983,
+         "DPP": 55157,
+         "PFP": 8459,
+         "ValidVotes": 82599,
+         "Votes": 83488,
+         "ValidPeople": 125346
+      }
+   ],
+   "64000120": [
+      {
+         "CountyCode": 64000,
+         "County": "鳳山區",
+         "KMT": 51865,
+         "DPP": 116337,
+         "PFP": 21593,
+         "ValidVotes": 189795,
+         "Votes": 191766,
+         "ValidPeople": 284901
+      }
+   ],
+   "64000130": [
+      {
+         "CountyCode": 64000,
+         "County": "林園區",
+         "KMT": 6982,
+         "DPP": 25904,
+         "PFP": 3519,
+         "ValidVotes": 36405,
+         "Votes": 36850,
+         "ValidPeople": 56380
+      }
+   ],
+   "64000140": [
+      {
+         "CountyCode": 64000,
+         "County": "大寮區",
+         "KMT": 13625,
+         "DPP": 40528,
+         "PFP": 6268,
+         "ValidVotes": 60421,
+         "Votes": 61115,
+         "ValidPeople": 92352
+      }
+   ],
+   "64000150": [
+      {
+         "CountyCode": 64000,
+         "County": "大樹區",
+         "KMT": 5392,
+         "DPP": 17115,
+         "PFP": 2069,
+         "ValidVotes": 24576,
+         "Votes": 24859,
+         "ValidPeople": 35524
+      }
+   ],
+   "64000160": [
+      {
+         "CountyCode": 64000,
+         "County": "大社區",
+         "KMT": 3985,
+         "DPP": 13663,
+         "PFP": 2038,
+         "ValidVotes": 19686,
+         "Votes": 19932,
+         "ValidPeople": 28545
+      }
+   ],
+   "64000170": [
+      {
+         "CountyCode": 64000,
+         "County": "仁武區",
+         "KMT": 9011,
+         "DPP": 30598,
+         "PFP": 4820,
+         "ValidVotes": 44429,
+         "Votes": 44916,
+         "ValidPeople": 66390
+      }
+   ],
+   "64000180": [
+      {
+         "CountyCode": 64000,
+         "County": "鳥松區",
+         "KMT": 6180,
+         "DPP": 16323,
+         "PFP": 2495,
+         "ValidVotes": 24998,
+         "Votes": 25302,
+         "ValidPeople": 37134
+      }
+   ],
+   "64000190": [
+      {
+         "CountyCode": 64000,
+         "County": "岡山區",
+         "KMT": 14645,
+         "DPP": 32841,
+         "PFP": 6424,
+         "ValidVotes": 53910,
+         "Votes": 54623,
+         "ValidPeople": 77753
+      }
+   ],
+   "64000200": [
+      {
+         "CountyCode": 64000,
+         "County": "橋頭區",
+         "KMT": 4476,
+         "DPP": 16051,
+         "PFP": 1920,
+         "ValidVotes": 22447,
+         "Votes": 22767,
+         "ValidPeople": 30866
+      }
+   ],
+   "64000210": [
+      {
+         "CountyCode": 64000,
+         "County": "燕巢區",
+         "KMT": 4126,
+         "DPP": 11445,
+         "PFP": 1701,
+         "ValidVotes": 17272,
+         "Votes": 17502,
+         "ValidPeople": 25005
+      }
+   ],
+   "64000220": [
+      {
+         "CountyCode": 64000,
+         "County": "田寮區",
+         "KMT": 884,
+         "DPP": 3250,
+         "PFP": 446,
+         "ValidVotes": 4580,
+         "Votes": 4652,
+         "ValidPeople": 6743
+      }
+   ],
+   "64000230": [
+      {
+         "CountyCode": 64000,
+         "County": "阿蓮區",
+         "KMT": 3133,
+         "DPP": 11280,
+         "PFP": 1556,
+         "ValidVotes": 15969,
+         "Votes": 16182,
+         "ValidPeople": 23715
+      }
+   ],
+   "64000240": [
+      {
+         "CountyCode": 64000,
+         "County": "路竹區",
+         "KMT": 6622,
+         "DPP": 18661,
+         "PFP": 3154,
+         "ValidVotes": 28437,
+         "Votes": 28918,
+         "ValidPeople": 42219
+      }
+   ],
+   "64000250": [
+      {
+         "CountyCode": 64000,
+         "County": "湖內區",
+         "KMT": 3386,
+         "DPP": 11145,
+         "PFP": 1757,
+         "ValidVotes": 16288,
+         "Votes": 16528,
+         "ValidPeople": 24519
+      }
+   ],
+   "64000260": [
+      {
+         "CountyCode": 64000,
+         "County": "茄萣區",
+         "KMT": 3018,
+         "DPP": 11172,
+         "PFP": 1950,
+         "ValidVotes": 16140,
+         "Votes": 16367,
+         "ValidPeople": 25414
+      }
+   ],
+   "64000270": [
+      {
+         "CountyCode": 64000,
+         "County": "永安區",
+         "KMT": 1754,
+         "DPP": 5023,
+         "PFP": 889,
+         "ValidVotes": 7666,
+         "Votes": 7779,
+         "ValidPeople": 11511
+      }
+   ],
+   "64000280": [
+      {
+         "CountyCode": 64000,
+         "County": "彌陀區",
+         "KMT": 2771,
+         "DPP": 7127,
+         "PFP": 1331,
+         "ValidVotes": 11229,
+         "Votes": 11416,
+         "ValidPeople": 15973
+      }
+   ],
+   "64000290": [
+      {
+         "CountyCode": 64000,
+         "County": "梓官區",
+         "KMT": 4072,
+         "DPP": 14812,
+         "PFP": 1990,
+         "ValidVotes": 20874,
+         "Votes": 21205,
+         "ValidPeople": 30161
+      }
+   ],
+   "64000300": [
+      {
+         "CountyCode": 64000,
+         "County": "旗山區",
+         "KMT": 4942,
+         "DPP": 13840,
+         "PFP": 2101,
+         "ValidVotes": 20883,
+         "Votes": 21181,
+         "ValidPeople": 31606
+      }
+   ],
+   "64000310": [
+      {
+         "CountyCode": 64000,
+         "County": "美濃區",
+         "KMT": 6801,
+         "DPP": 13471,
+         "PFP": 2496,
+         "ValidVotes": 22768,
+         "Votes": 23037,
+         "ValidPeople": 34861
+      }
+   ],
+   "64000320": [
+      {
+         "CountyCode": 64000,
+         "County": "六龜區",
+         "KMT": 1617,
+         "DPP": 4145,
+         "PFP": 679,
+         "ValidVotes": 6441,
+         "Votes": 6533,
+         "ValidPeople": 11429
+      }
+   ],
+   "64000330": [
+      {
+         "CountyCode": 64000,
+         "County": "甲仙區",
+         "KMT": 1021,
+         "DPP": 1678,
+         "PFP": 427,
+         "ValidVotes": 3126,
+         "Votes": 3167,
+         "ValidPeople": 5378
+      }
+   ],
+   "64000340": [
+      {
+         "CountyCode": 64000,
+         "County": "杉林區",
+         "KMT": 1643,
+         "DPP": 3660,
+         "PFP": 557,
+         "ValidVotes": 5860,
+         "Votes": 5974,
+         "ValidPeople": 10679
+      }
+   ],
+   "64000350": [
+      {
+         "CountyCode": 64000,
+         "County": "內門區",
+         "KMT": 2242,
+         "DPP": 5713,
+         "PFP": 887,
+         "ValidVotes": 8455,
+         "Votes": 8601,
+         "ValidPeople": 12872
+      }
+   ],
+   "64000360": [
+      {
+         "CountyCode": 64000,
+         "County": "茂林區",
+         "KMT": 577,
+         "DPP": 166,
+         "PFP": 152,
+         "ValidVotes": 895,
+         "Votes": 903,
+         "ValidPeople": 1447
+      }
+   ],
+   "64000370": [
+      {
+         "CountyCode": 64000,
+         "County": "桃源區",
+         "KMT": 862,
+         "DPP": 464,
+         "PFP": 341,
+         "ValidVotes": 1667,
+         "Votes": 1686,
+         "ValidPeople": 3261
+      }
+   ],
+   "64000380": [
+      {
+         "CountyCode": 64000,
+         "County": "那瑪夏區",
+         "KMT": 681,
+         "DPP": 373,
+         "PFP": 163,
+         "ValidVotes": 1217,
+         "Votes": 1228,
+         "ValidPeople": 2300
+      }
+   ],
+   "65000010": [
+      {
+         "CountyCode": 65000,
+         "County": "板橋區",
+         "KMT": 94831,
+         "DPP": 176162,
+         "PFP": 33649,
+         "ValidVotes": 304642,
+         "Votes": 308276,
+         "ValidPeople": 444752
+      }
+   ],
+   "65000020": [
+      {
+         "CountyCode": 65000,
+         "County": "三重區",
+         "KMT": 58077,
+         "DPP": 134575,
+         "PFP": 24853,
+         "ValidVotes": 217505,
+         "Votes": 219894,
+         "ValidPeople": 317620
+      }
+   ],
+   "65000030": [
+      {
+         "CountyCode": 65000,
+         "County": "中和區",
+         "KMT": 94152,
+         "DPP": 112491,
+         "PFP": 28533,
+         "ValidVotes": 232618,
+         "Votes": 236097,
+         "ValidPeople": 344036
+      }
+   ],
+   "65000040": [
+      {
+         "CountyCode": 65000,
+         "County": "永和區",
+         "KMT": 54466,
+         "DPP": 53214,
+         "PFP": 15051,
+         "ValidVotes": 122731,
+         "Votes": 124508,
+         "ValidPeople": 183244
+      }
+   ],
+   "65000050": [
+      {
+         "CountyCode": 65000,
+         "County": "新莊區",
+         "KMT": 59249,
+         "DPP": 131027,
+         "PFP": 26039,
+         "ValidVotes": 216315,
+         "Votes": 218669,
+         "ValidPeople": 325205
+      }
+   ],
+   "65000060": [
+      {
+         "CountyCode": 65000,
+         "County": "新店區",
+         "KMT": 75420,
+         "DPP": 69922,
+         "PFP": 20156,
+         "ValidVotes": 165498,
+         "Votes": 168113,
+         "ValidPeople": 251520
+      }
+   ],
+   "65000070": [
+      {
+         "CountyCode": 65000,
+         "County": "樹林區",
+         "KMT": 28553,
+         "DPP": 56357,
+         "PFP": 11940,
+         "ValidVotes": 96850,
+         "Votes": 97999,
+         "ValidPeople": 144515
+      }
+   ],
+   "65000080": [
+      {
+         "CountyCode": 65000,
+         "County": "鶯歌區",
+         "KMT": 13152,
+         "DPP": 26487,
+         "PFP": 5968,
+         "ValidVotes": 45607,
+         "Votes": 46131,
+         "ValidPeople": 68754
+      }
+   ],
+   "65000090": [
+      {
+         "CountyCode": 65000,
+         "County": "三峽區",
+         "KMT": 17711,
+         "DPP": 30995,
+         "PFP": 7388,
+         "ValidVotes": 56094,
+         "Votes": 56695,
+         "ValidPeople": 86815
+      }
+   ],
+   "65000100": [
+      {
+         "CountyCode": 65000,
+         "County": "淡水區",
+         "KMT": 31080,
+         "DPP": 44551,
+         "PFP": 9473,
+         "ValidVotes": 85104,
+         "Votes": 86122,
+         "ValidPeople": 132664
+      }
+   ],
+   "65000110": [
+      {
+         "CountyCode": 65000,
+         "County": "汐止區",
+         "KMT": 37513,
+         "DPP": 53546,
+         "PFP": 12922,
+         "ValidVotes": 103981,
+         "Votes": 105330,
+         "ValidPeople": 162331
+      }
+   ],
+   "65000120": [
+      {
+         "CountyCode": 65000,
+         "County": "瑞芳區",
+         "KMT": 7325,
+         "DPP": 10874,
+         "PFP": 2707,
+         "ValidVotes": 20906,
+         "Votes": 21189,
+         "ValidPeople": 34426
+      }
+   ],
+   "65000130": [
+      {
+         "CountyCode": 65000,
+         "County": "土城區",
+         "KMT": 39199,
+         "DPP": 71733,
+         "PFP": 14898,
+         "ValidVotes": 125830,
+         "Votes": 127227,
+         "ValidPeople": 191754
+      }
+   ],
+   "65000140": [
+      {
+         "CountyCode": 65000,
+         "County": "蘆洲區",
+         "KMT": 25696,
+         "DPP": 65650,
+         "PFP": 11538,
+         "ValidVotes": 102884,
+         "Votes": 103994,
+         "ValidPeople": 157446
+      }
+   ],
+   "65000150": [
+      {
+         "CountyCode": 65000,
+         "County": "五股區",
+         "KMT": 12466,
+         "DPP": 25832,
+         "PFP": 5086,
+         "ValidVotes": 43384,
+         "Votes": 43857,
+         "ValidPeople": 65730
+      }
+   ],
+   "65000160": [
+      {
+         "CountyCode": 65000,
+         "County": "泰山區",
+         "KMT": 12190,
+         "DPP": 23671,
+         "PFP": 4938,
+         "ValidVotes": 40799,
+         "Votes": 41285,
+         "ValidPeople": 61158
+      }
+   ],
+   "65000170": [
+      {
+         "CountyCode": 65000,
+         "County": "林口區",
+         "KMT": 16800,
+         "DPP": 25267,
+         "PFP": 6914,
+         "ValidVotes": 48981,
+         "Votes": 49504,
+         "ValidPeople": 75232
+      }
+   ],
+   "65000180": [
+      {
+         "CountyCode": 65000,
+         "County": "深坑區",
+         "KMT": 4582,
+         "DPP": 6702,
+         "PFP": 1500,
+         "ValidVotes": 12784,
+         "Votes": 12940,
+         "ValidPeople": 19481
+      }
+   ],
+   "65000190": [
+      {
+         "CountyCode": 65000,
+         "County": "石碇區",
+         "KMT": 1140,
+         "DPP": 2786,
+         "PFP": 450,
+         "ValidVotes": 4376,
+         "Votes": 4431,
+         "ValidPeople": 6595
+      }
+   ],
+   "65000200": [
+      {
+         "CountyCode": 65000,
+         "County": "坪林區",
+         "KMT": 927,
+         "DPP": 2438,
+         "PFP": 300,
+         "ValidVotes": 3665,
+         "Votes": 3718,
+         "ValidPeople": 5576
+      }
+   ],
+   "65000210": [
+      {
+         "CountyCode": 65000,
+         "County": "三芝區",
+         "KMT": 4428,
+         "DPP": 6182,
+         "PFP": 1230,
+         "ValidVotes": 11840,
+         "Votes": 12013,
+         "ValidPeople": 19413
+      }
+   ],
+   "65000220": [
+      {
+         "CountyCode": 65000,
+         "County": "石門區",
+         "KMT": 2431,
+         "DPP": 3199,
+         "PFP": 602,
+         "ValidVotes": 6232,
+         "Votes": 6312,
+         "ValidPeople": 10275
+      }
+   ],
+   "65000230": [
+      {
+         "CountyCode": 65000,
+         "County": "八里區",
+         "KMT": 6231,
+         "DPP": 10907,
+         "PFP": 2505,
+         "ValidVotes": 19643,
+         "Votes": 19904,
+         "ValidPeople": 30335
+      }
+   ],
+   "65000240": [
+      {
+         "CountyCode": 65000,
+         "County": "平溪區",
+         "KMT": 852,
+         "DPP": 1581,
+         "PFP": 266,
+         "ValidVotes": 2699,
+         "Votes": 2738,
+         "ValidPeople": 4395
+      }
+   ],
+   "65000250": [
+      {
+         "CountyCode": 65000,
+         "County": "雙溪區",
+         "KMT": 1713,
+         "DPP": 2620,
+         "PFP": 486,
+         "ValidVotes": 4819,
+         "Votes": 4909,
+         "ValidPeople": 8044
+      }
+   ],
+   "65000260": [
+      {
+         "CountyCode": 65000,
+         "County": "貢寮區",
+         "KMT": 1725,
+         "DPP": 4502,
+         "PFP": 485,
+         "ValidVotes": 6712,
+         "Votes": 6808,
+         "ValidPeople": 11205
+      }
+   ],
+   "65000270": [
+      {
+         "CountyCode": 65000,
+         "County": "金山區",
+         "KMT": 3471,
+         "DPP": 6596,
+         "PFP": 1104,
+         "ValidVotes": 11171,
+         "Votes": 11312,
+         "ValidPeople": 18235
+      }
+   ],
+   "65000280": [
+      {
+         "CountyCode": 65000,
+         "County": "萬里區",
+         "KMT": 3779,
+         "DPP": 6017,
+         "PFP": 1245,
+         "ValidVotes": 11041,
+         "Votes": 11172,
+         "ValidPeople": 18750
+      }
+   ],
+   "65000290": [
+      {
+         "CountyCode": 65000,
+         "County": "烏來區",
+         "KMT": 1156,
+         "DPP": 1295,
+         "PFP": 586,
+         "ValidVotes": 3037,
+         "Votes": 3082,
+         "ValidPeople": 4861
+      }
+   ],
+   "66000010": [
+      {
+         "CountyCode": 66000,
+         "County": "中區",
+         "KMT": 2773,
+         "DPP": 5162,
+         "PFP": 1258,
+         "ValidVotes": 9193,
+         "Votes": 9313,
+         "ValidPeople": 14441
+      }
+   ],
+   "66000020": [
+      {
+         "CountyCode": 66000,
+         "County": "東區",
+         "KMT": 11681,
+         "DPP": 23757,
+         "PFP": 5968,
+         "ValidVotes": 41406,
+         "Votes": 41953,
+         "ValidPeople": 60944
+      },
+      {
+         "CountyCode": 66000,
+         "County": "東區",
+         "KMT": 331,
+         "DPP": 798,
+         "PFP": 98,
+         "ValidVotes": 4177,
+         "Votes": 4235,
+         "ValidPeople": 5886
+      }
+   ],
+   "66000030": [
+      {
+         "CountyCode": 66000,
+         "County": "南區",
+         "KMT": 18808,
+         "DPP": 34723,
+         "PFP": 9611,
+         "ValidVotes": 63142,
+         "Votes": 63927,
+         "ValidPeople": 95088
+      }
+   ],
+   "66000040": [
+      {
+         "CountyCode": 66000,
+         "County": "西區",
+         "KMT": 18616,
+         "DPP": 33117,
+         "PFP": 8608,
+         "ValidVotes": 60341,
+         "Votes": 61103,
+         "ValidPeople": 90819
+      }
+   ],
+   "66000050": [
+      {
+         "CountyCode": 66000,
+         "County": "北區",
+         "KMT": 25723,
+         "DPP": 39983,
+         "PFP": 11973,
+         "ValidVotes": 77679,
+         "Votes": 78655,
+         "ValidPeople": 119288
+      }
+   ],
+   "66000060": [
+      {
+         "CountyCode": 66000,
+         "County": "西屯區",
+         "KMT": 36346,
+         "DPP": 57254,
+         "PFP": 17728,
+         "ValidVotes": 110164,
+         "Votes": 111706,
+         "ValidPeople": 167094
+      }
+   ],
+   "66000070": [
+      {
+         "CountyCode": 66000,
+         "County": "南屯區",
+         "KMT": 25248,
+         "DPP": 44025,
+         "PFP": 12945,
+         "ValidVotes": 82218,
+         "Votes": 83264,
+         "ValidPeople": 122445
+      }
+   ],
+   "66000080": [
+      {
+         "CountyCode": 66000,
+         "County": "北屯區",
+         "KMT": 44404,
+         "DPP": 70388,
+         "PFP": 22087,
+         "ValidVotes": 136879,
+         "Votes": 138634,
+         "ValidPeople": 206568
+      }
+   ],
+   "66000090": [
+      {
+         "CountyCode": 66000,
+         "County": "豐原區",
+         "KMT": 24950,
+         "DPP": 54132,
+         "PFP": 12510,
+         "ValidVotes": 91592,
+         "Votes": 92821,
+         "ValidPeople": 129654
+      }
+   ],
+   "66000100": [
+      {
+         "CountyCode": 66000,
+         "County": "東勢區",
+         "KMT": 9909,
+         "DPP": 14789,
+         "PFP": 3941,
+         "ValidVotes": 28639,
+         "Votes": 29115,
+         "ValidPeople": 42048
+      }
+   ],
+   "66000110": [
+      {
+         "CountyCode": 66000,
+         "County": "大甲區",
+         "KMT": 11900,
+         "DPP": 23251,
+         "PFP": 5170,
+         "ValidVotes": 39724,
+         "Votes": 40254,
+         "ValidPeople": 60041
+      }
+   ],
+   "66000120": [
+      {
+         "CountyCode": 66000,
+         "County": "清水區",
+         "KMT": 12908,
+         "DPP": 27086,
+         "PFP": 5855,
+         "ValidVotes": 45849,
+         "Votes": 46638,
+         "ValidPeople": 67789
+      }
+   ],
+   "66000130": [
+      {
+         "CountyCode": 66000,
+         "County": "沙鹿區",
+         "KMT": 13758,
+         "DPP": 25584,
+         "PFP": 7596,
+         "ValidVotes": 46938,
+         "Votes": 47698,
+         "ValidPeople": 67949
+      }
+   ],
+   "66000140": [
+      {
+         "CountyCode": 66000,
+         "County": "梧棲區",
+         "KMT": 7930,
+         "DPP": 16608,
+         "PFP": 4118,
+         "ValidVotes": 28656,
+         "Votes": 29007,
+         "ValidPeople": 43866
+      }
+   ],
+   "66000150": [
+      {
+         "CountyCode": 66000,
+         "County": "后里區",
+         "KMT": 8917,
+         "DPP": 16945,
+         "PFP": 4479,
+         "ValidVotes": 30341,
+         "Votes": 30842,
+         "ValidPeople": 42377
+      }
+   ],
+   "66000160": [
+      {
+         "CountyCode": 66000,
+         "County": "神岡區",
+         "KMT": 9029,
+         "DPP": 22808,
+         "PFP": 5048,
+         "ValidVotes": 36885,
+         "Votes": 37439,
+         "ValidPeople": 51457
+      }
+   ],
+   "66000170": [
+      {
+         "CountyCode": 66000,
+         "County": "潭子區",
+         "KMT": 16451,
+         "DPP": 32481,
+         "PFP": 9206,
+         "ValidVotes": 58138,
+         "Votes": 58868,
+         "ValidPeople": 83032
+      }
+   ],
+   "66000180": [
+      {
+         "CountyCode": 66000,
+         "County": "大雅區",
+         "KMT": 15243,
+         "DPP": 26558,
+         "PFP": 7806,
+         "ValidVotes": 49607,
+         "Votes": 50370,
+         "ValidPeople": 71279
+      }
+   ],
+   "66000190": [
+      {
+         "CountyCode": 66000,
+         "County": "新社區",
+         "KMT": 4284,
+         "DPP": 7951,
+         "PFP": 1789,
+         "ValidVotes": 14024,
+         "Votes": 14254,
+         "ValidPeople": 20206
+      }
+   ],
+   "66000200": [
+      {
+         "CountyCode": 66000,
+         "County": "石岡區",
+         "KMT": 2837,
+         "DPP": 4699,
+         "PFP": 1149,
+         "ValidVotes": 8685,
+         "Votes": 8838,
+         "ValidPeople": 12421
+      }
+   ],
+   "66000210": [
+      {
+         "CountyCode": 66000,
+         "County": "外埔區",
+         "KMT": 5685,
+         "DPP": 8846,
+         "PFP": 2357,
+         "ValidVotes": 16888,
+         "Votes": 17134,
+         "ValidPeople": 25490
+      }
+   ],
+   "66000220": [
+      {
+         "CountyCode": 66000,
+         "County": "大安區",
+         "KMT": 3235,
+         "DPP": 6151,
+         "PFP": 1148,
+         "ValidVotes": 10534,
+         "Votes": 10689,
+         "ValidPeople": 15995
+      }
+   ],
+   "66000230": [
+      {
+         "CountyCode": 66000,
+         "County": "烏日區",
+         "KMT": 11211,
+         "DPP": 22315,
+         "PFP": 6041,
+         "ValidVotes": 39567,
+         "Votes": 40110,
+         "ValidPeople": 56550
+      }
+   ],
+   "66000240": [
+      {
+         "CountyCode": 66000,
+         "County": "大肚區",
+         "KMT": 9504,
+         "DPP": 17025,
+         "PFP": 4955,
+         "ValidVotes": 31484,
+         "Votes": 32011,
+         "ValidPeople": 44638
+      }
+   ],
+   "66000250": [
+      {
+         "CountyCode": 66000,
+         "County": "龍井區",
+         "KMT": 11931,
+         "DPP": 22482,
+         "PFP": 6192,
+         "ValidVotes": 40605,
+         "Votes": 41337,
+         "ValidPeople": 59320
+      }
+   ],
+   "66000260": [
+      {
+         "CountyCode": 66000,
+         "County": "霧峰區",
+         "KMT": 10215,
+         "DPP": 20344,
+         "PFP": 6047,
+         "ValidVotes": 36606,
+         "Votes": 37160,
+         "ValidPeople": 52125
+      }
+   ],
+   "66000270": [
+      {
+         "CountyCode": 66000,
+         "County": "太平區",
+         "KMT": 27020,
+         "DPP": 52433,
+         "PFP": 14912,
+         "ValidVotes": 94365,
+         "Votes": 95544,
+         "ValidPeople": 144920
+      }
+   ],
+   "66000280": [
+      {
+         "CountyCode": 66000,
+         "County": "大里區",
+         "KMT": 27583,
+         "DPP": 60838,
+         "PFP": 17039,
+         "ValidVotes": 105460,
+         "Votes": 106649,
+         "ValidPeople": 160078
+      }
+   ],
+   "66000290": [
+      {
+         "CountyCode": 66000,
+         "County": "和平區",
+         "KMT": 2087,
+         "DPP": 1878,
+         "PFP": 1358,
+         "ValidVotes": 5323,
+         "Votes": 5373,
+         "ValidPeople": 8860
+      }
+   ],
+   "67000010": [
+      {
+         "CountyCode": 67000,
+         "County": "新營區",
+         "KMT": 9811,
+         "DPP": 24205,
+         "PFP": 4578,
+         "ValidVotes": 38594,
+         "Votes": 39081,
+         "ValidPeople": 62022
+      }
+   ],
+   "67000020": [
+      {
+         "CountyCode": 67000,
+         "County": "鹽水區",
+         "KMT": 2530,
+         "DPP": 9726,
+         "PFP": 1171,
+         "ValidVotes": 13427,
+         "Votes": 13623,
+         "ValidPeople": 21860
+      }
+   ],
+   "67000030": [
+      {
+         "CountyCode": 67000,
+         "County": "白河區",
+         "KMT": 2973,
+         "DPP": 10796,
+         "PFP": 1191,
+         "ValidVotes": 14960,
+         "Votes": 15211,
+         "ValidPeople": 24913
+      }
+   ],
+   "67000040": [
+      {
+         "CountyCode": 67000,
+         "County": "柳營區",
+         "KMT": 2252,
+         "DPP": 8284,
+         "PFP": 1119,
+         "ValidVotes": 11655,
+         "Votes": 11821,
+         "ValidPeople": 18446
+      }
+   ],
+   "67000050": [
+      {
+         "CountyCode": 67000,
+         "County": "後壁區",
+         "KMT": 2457,
+         "DPP": 9730,
+         "PFP": 1095,
+         "ValidVotes": 13282,
+         "Votes": 13492,
+         "ValidPeople": 20910
+      }
+   ],
+   "67000060": [
+      {
+         "CountyCode": 67000,
+         "County": "東山區",
+         "KMT": 2100,
+         "DPP": 7145,
+         "PFP": 1199,
+         "ValidVotes": 10444,
+         "Votes": 10589,
+         "ValidPeople": 18422
+      }
+   ],
+   "67000070": [
+      {
+         "CountyCode": 67000,
+         "County": "麻豆區",
+         "KMT": 3858,
+         "DPP": 20273,
+         "PFP": 1835,
+         "ValidVotes": 25165,
+         "Votes": 25506,
+         "ValidPeople": 36806
+      }
+   ],
+   "67000080": [
+      {
+         "CountyCode": 67000,
+         "County": "下營區",
+         "KMT": 2555,
+         "DPP": 9340,
+         "PFP": 1066,
+         "ValidVotes": 12961,
+         "Votes": 13177,
+         "ValidPeople": 20830
+      }
+   ],
+   "67000090": [
+      {
+         "CountyCode": 67000,
+         "County": "六甲區",
+         "KMT": 2107,
+         "DPP": 8599,
+         "PFP": 1044,
+         "ValidVotes": 11750,
+         "Votes": 11925,
+         "ValidPeople": 18603
+      }
+   ],
+   "67000100": [
+      {
+         "CountyCode": 67000,
+         "County": "官田區",
+         "KMT": 2013,
+         "DPP": 9036,
+         "PFP": 943,
+         "ValidVotes": 11992,
+         "Votes": 12130,
+         "ValidPeople": 18178
+      }
+   ],
+   "67000110": [
+      {
+         "CountyCode": 67000,
+         "County": "大內區",
+         "KMT": 1010,
+         "DPP": 3984,
+         "PFP": 524,
+         "ValidVotes": 5518,
+         "Votes": 5610,
+         "ValidPeople": 8630
+      }
+   ],
+   "67000120": [
+      {
+         "CountyCode": 67000,
+         "County": "佳里區",
+         "KMT": 5976,
+         "DPP": 22318,
+         "PFP": 2683,
+         "ValidVotes": 30977,
+         "Votes": 31380,
+         "ValidPeople": 48571
+      }
+   ],
+   "67000130": [
+      {
+         "CountyCode": 67000,
+         "County": "學甲區",
+         "KMT": 2437,
+         "DPP": 10485,
+         "PFP": 1095,
+         "ValidVotes": 14017,
+         "Votes": 14153,
+         "ValidPeople": 22349
+      }
+   ],
+   "67000140": [
+      {
+         "CountyCode": 67000,
+         "County": "西港區",
+         "KMT": 2188,
+         "DPP": 10347,
+         "PFP": 997,
+         "ValidVotes": 13532,
+         "Votes": 13742,
+         "ValidPeople": 20756
+      }
+   ],
+   "67000150": [
+      {
+         "CountyCode": 67000,
+         "County": "七股區",
+         "KMT": 1931,
+         "DPP": 9284,
+         "PFP": 930,
+         "ValidVotes": 12145,
+         "Votes": 12322,
+         "ValidPeople": 19703
+      }
+   ],
+   "67000160": [
+      {
+         "CountyCode": 67000,
+         "County": "將軍區",
+         "KMT": 1638,
+         "DPP": 8238,
+         "PFP": 725,
+         "ValidVotes": 10601,
+         "Votes": 10744,
+         "ValidPeople": 17714
+      }
+   ],
+   "67000170": [
+      {
+         "CountyCode": 67000,
+         "County": "北門區",
+         "KMT": 1082,
+         "DPP": 4133,
+         "PFP": 494,
+         "ValidVotes": 5709,
+         "Votes": 5771,
+         "ValidPeople": 10015
+      }
+   ],
+   "67000180": [
+      {
+         "CountyCode": 67000,
+         "County": "新化區",
+         "KMT": 5215,
+         "DPP": 15451,
+         "PFP": 2602,
+         "ValidVotes": 23268,
+         "Votes": 23547,
+         "ValidPeople": 35774
+      }
+   ],
+   "67000190": [
+      {
+         "CountyCode": 67000,
+         "County": "善化區",
+         "KMT": 4669,
+         "DPP": 17593,
+         "PFP": 2156,
+         "ValidVotes": 24418,
+         "Votes": 24703,
+         "ValidPeople": 37107
+      }
+   ],
+   "67000200": [
+      {
+         "CountyCode": 67000,
+         "County": "新市區",
+         "KMT": 3573,
+         "DPP": 13690,
+         "PFP": 1780,
+         "ValidVotes": 19043,
+         "Votes": 19260,
+         "ValidPeople": 28384
+      }
+   ],
+   "67000210": [
+      {
+         "CountyCode": 67000,
+         "County": "安定區",
+         "KMT": 3038,
+         "DPP": 12078,
+         "PFP": 1395,
+         "ValidVotes": 16511,
+         "Votes": 16751,
+         "ValidPeople": 24861
+      }
+   ],
+   "67000220": [
+      {
+         "CountyCode": 67000,
+         "County": "山上區",
+         "KMT": 828,
+         "DPP": 2833,
+         "PFP": 349,
+         "ValidVotes": 4010,
+         "Votes": 4073,
+         "ValidPeople": 6340
+      }
+   ],
+   "67000230": [
+      {
+         "CountyCode": 67000,
+         "County": "玉井區",
+         "KMT": 2177,
+         "DPP": 4204,
+         "PFP": 926,
+         "ValidVotes": 7307,
+         "Votes": 7388,
+         "ValidPeople": 12220
+      }
+   ],
+   "67000240": [
+      {
+         "CountyCode": 67000,
+         "County": "楠西區",
+         "KMT": 1555,
+         "DPP": 2539,
+         "PFP": 823,
+         "ValidVotes": 4917,
+         "Votes": 4979,
+         "ValidPeople": 8542
+      }
+   ],
+   "67000250": [
+      {
+         "CountyCode": 67000,
+         "County": "南化區",
+         "KMT": 1199,
+         "DPP": 2597,
+         "PFP": 731,
+         "ValidVotes": 4527,
+         "Votes": 4589,
+         "ValidPeople": 7611
+      }
+   ],
+   "67000260": [
+      {
+         "CountyCode": 67000,
+         "County": "左鎮區",
+         "KMT": 642,
+         "DPP": 1840,
+         "PFP": 246,
+         "ValidVotes": 2728,
+         "Votes": 2780,
+         "ValidPeople": 4540
+      }
+   ],
+   "67000270": [
+      {
+         "CountyCode": 67000,
+         "County": "仁德區",
+         "KMT": 9332,
+         "DPP": 27233,
+         "PFP": 4160,
+         "ValidVotes": 40725,
+         "Votes": 41261,
+         "ValidPeople": 60769
+      }
+   ],
+   "67000280": [
+      {
+         "CountyCode": 67000,
+         "County": "歸仁區",
+         "KMT": 6961,
+         "DPP": 26101,
+         "PFP": 3333,
+         "ValidVotes": 36395,
+         "Votes": 36855,
+         "ValidPeople": 54328
+      }
+   ],
+   "67000290": [
+      {
+         "CountyCode": 67000,
+         "County": "關廟區",
+         "KMT": 3967,
+         "DPP": 13807,
+         "PFP": 1763,
+         "ValidVotes": 19537,
+         "Votes": 19761,
+         "ValidPeople": 28988
+      }
+   ],
+   "67000300": [
+      {
+         "CountyCode": 67000,
+         "County": "龍崎區",
+         "KMT": 555,
+         "DPP": 1643,
+         "PFP": 262,
+         "ValidVotes": 2460,
+         "Votes": 2498,
+         "ValidPeople": 3791
+      }
+   ],
+   "67000310": [
+      {
+         "CountyCode": 67000,
+         "County": "永康區",
+         "KMT": 27712,
+         "DPP": 76315,
+         "PFP": 14267,
+         "ValidVotes": 118294,
+         "Votes": 119600,
+         "ValidPeople": 182317
+      }
+   ],
+   "67000320": [
+      {
+         "CountyCode": 67000,
+         "County": "東區",
+         "KMT": 28606,
+         "DPP": 57465,
+         "PFP": 11509,
+         "ValidVotes": 97580,
+         "Votes": 98859,
+         "ValidPeople": 147233
+      }
+   ],
+   "67000330": [
+      {
+         "CountyCode": 67000,
+         "County": "南區",
+         "KMT": 16067,
+         "DPP": 47589,
+         "PFP": 7330,
+         "ValidVotes": 70986,
+         "Votes": 71889,
+         "ValidPeople": 105478
+      }
+   ],
+   "67000340": [
+      {
+         "CountyCode": 67000,
+         "County": "北區",
+         "KMT": 18798,
+         "DPP": 44554,
+         "PFP": 8400,
+         "ValidVotes": 71752,
+         "Votes": 72601,
+         "ValidPeople": 108215
+      }
+   ],
+   "67000350": [
+      {
+         "CountyCode": 67000,
+         "County": "安南區",
+         "KMT": 17640,
+         "DPP": 70685,
+         "PFP": 10318,
+         "ValidVotes": 98643,
+         "Votes": 99779,
+         "ValidPeople": 150000
+      }
+   ],
+   "67000360": [
+      {
+         "CountyCode": 67000,
+         "County": "安平區",
+         "KMT": 7868,
+         "DPP": 20410,
+         "PFP": 4157,
+         "ValidVotes": 32435,
+         "Votes": 32788,
+         "ValidPeople": 51159
+      }
+   ],
+   "67000370": [
+      {
+         "CountyCode": 67000,
+         "County": "中西區",
+         "KMT": 10281,
+         "DPP": 27170,
+         "PFP": 4403,
+         "ValidVotes": 41854,
+         "Votes": 42351,
+         "ValidPeople": 63296
+      }
+   ],
+   "68000010": [
+      {
+         "CountyCode": 68000,
+         "County": "桃園區",
+         "KMT": 70295,
+         "DPP": 113237,
+         "PFP": 30352,
+         "ValidVotes": 213884,
+         "Votes": 216125,
+         "ValidPeople": 325920
+      }
+   ],
+   "68000020": [
+      {
+         "CountyCode": 68000,
+         "County": "中壢區",
+         "KMT": 76846,
+         "DPP": 93743,
+         "PFP": 30880,
+         "ValidVotes": 201469,
+         "Votes": 203634,
+         "ValidPeople": 302573
+      }
+   ],
+   "68000030": [
+      {
+         "CountyCode": 68000,
+         "County": "大溪區",
+         "KMT": 15669,
+         "DPP": 26959,
+         "PFP": 6010,
+         "ValidVotes": 48638,
+         "Votes": 49169,
+         "ValidPeople": 73131
+      }
+   ],
+   "68000040": [
+      {
+         "CountyCode": 68000,
+         "County": "楊梅區",
+         "KMT": 28747,
+         "DPP": 37912,
+         "PFP": 13569,
+         "ValidVotes": 80228,
+         "Votes": 81112,
+         "ValidPeople": 123736
+      }
+   ],
+   "68000050": [
+      {
+         "CountyCode": 68000,
+         "County": "蘆竹區",
+         "KMT": 22563,
+         "DPP": 43527,
+         "PFP": 10187,
+         "ValidVotes": 76277,
+         "Votes": 77163,
+         "ValidPeople": 115107
+      }
+   ],
+   "68000060": [
+      {
+         "CountyCode": 68000,
+         "County": "大園區",
+         "KMT": 12256,
+         "DPP": 25620,
+         "PFP": 5800,
+         "ValidVotes": 43676,
+         "Votes": 44195,
+         "ValidPeople": 66274
+      }
+   ],
+   "68000070": [
+      {
+         "CountyCode": 68000,
+         "County": "龜山區",
+         "KMT": 24434,
+         "DPP": 39495,
+         "PFP": 10293,
+         "ValidVotes": 74222,
+         "Votes": 75096,
+         "ValidPeople": 114343
+      }
+   ],
+   "68000080": [
+      {
+         "CountyCode": 68000,
+         "County": "八德區",
+         "KMT": 35965,
+         "DPP": 47708,
+         "PFP": 13991,
+         "ValidVotes": 97664,
+         "Votes": 98782,
+         "ValidPeople": 147627
+      }
+   ],
+   "68000090": [
+      {
+         "CountyCode": 68000,
+         "County": "龍潭區",
+         "KMT": 23696,
+         "DPP": 27280,
+         "PFP": 9226,
+         "ValidVotes": 60202,
+         "Votes": 60899,
+         "ValidPeople": 92890
+      }
+   ],
+   "68000100": [
+      {
+         "CountyCode": 68000,
+         "County": "平鎮區",
+         "KMT": 40402,
+         "DPP": 53999,
+         "PFP": 17617,
+         "ValidVotes": 112018,
+         "Votes": 113317,
+         "ValidPeople": 168461
+      }
+   ],
+   "68000110": [
+      {
+         "CountyCode": 68000,
+         "County": "新屋區",
+         "KMT": 7619,
+         "DPP": 15897,
+         "PFP": 3327,
+         "ValidVotes": 26843,
+         "Votes": 27116,
+         "ValidPeople": 38940
+      }
+   ],
+   "68000120": [
+      {
+         "CountyCode": 68000,
+         "County": "觀音區",
+         "KMT": 8193,
+         "DPP": 20639,
+         "PFP": 4410,
+         "ValidVotes": 33242,
+         "Votes": 33601,
+         "ValidPeople": 50142
+      }
+   ],
+   "68000130": [
+      {
+         "CountyCode": 68000,
+         "County": "復興區",
+         "KMT": 2328,
+         "DPP": 1557,
+         "PFP": 856,
+         "ValidVotes": 4741,
+         "Votes": 4793,
+         "ValidPeople": 8454
+      }
+   ]
+}

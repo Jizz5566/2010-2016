@@ -7,11 +7,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>TW Map 2020</title>
-        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="./js/topojson.js"></script>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="">
         <style>
           html,
@@ -24,14 +25,42 @@
             margin: 0px;
             padding: 0px;
             z-index: 1;
-          }
+        }
           </style>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <h2 id="content" class="text-muted">縣市鄉鎮</h2>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="list-inline">
+                <div class="col-md-6">
+                    <div id="slider">
+                        <h3 id="h3">按鈕切換年度（2010-2016）</h3>
+                        <button type="button" name="store" id="0" value="2010" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2010</button>
+                        <button type="button" name="store" id="3" value="2012" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2012</button>
+                        <button type="button" name="store" id="1" value="2014" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2014</button>
+                        <button type="button" name="store" id="2" value="2016" style="font-size:16px;font-weight: bold;" class="btn btn-default btn-sm">2016</button>
+                    </div>
+                    <!-- <script>
+                    $(function() {
+                        $('.btn').click(function() {
+                            var ID = $(this).attr('id');
+                            tableidselections = $(this).attr('value');
+                            if (infowindow) infowindow.close();
+                            changeLayer(tableidselections, tableId);
+                        });
+                    });
+                    </script> -->
+                    <div class=navbar-header>
+                        <!-- <button type=button class="navbar-toggle collapsed" data-toggle=collapse data-target=#navbar aria-expanded=false aria-controls=navbar> <span class=sr-only>Toggle navigation</span> <span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span> </button> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 id="countytown" class="text-muted">縣市鄉鎮</h2>
+                </div>
+            </ul>
+        </div>     
     <div class="col-md-12">
         <div class="col-md-8">
             <div id="map"></div>
@@ -43,198 +72,9 @@
             <div id="container2" style="mid-width: 280px; height: 300px; margin: 0 auto"></div>
         </div>
     </div>
-        <script src="./js/topojson.js"></script>
-
-    <script>
-        $.ajaxSetup({async: false});
-        var map, town, TW2016=[];
-       
-        function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 8,
-                    center: {lat: 23.858987, lng:120.917631},
-                    styles: [{
-                        featureType:'administrative',
-                        elementType:'geometry.stroke',
-                        stylers: [{
-                        color: '#0000ff'
-                        },
-                        {
-                            Weight: '4.00'
-                        }]
-                    }]
-                });
-
-                map.data.loadGeoJson('town3.json');
-
-                map.data.setStyle({
-                    strokeWeight: 1,
-                    strokeOpacity: .5,
-                    strokeColor: '#000'
-                });
                 
-                var infowindow = new google.maps.InfoWindow();
 
-                map.data.addListener('mouseover', function(event) {
-                    map.data.revertStyle();
-                    map.data.overrideStyle(event.feature, {fillColor: '#ff0'});
-                    var coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
-                    infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
-                    var name = event.feature.getProperty('COUNTYNAME') + event.feature.getProperty('TOWNNAME'); // 設定資訊視窗的內容為行政區名稱
-                    infowindow.setContent('<h3>'+name+'</h3>'); // 將資訊視窗打開在地圖上
-                    infowindow.open(map);
-                    //$('#content').html('<div>' + name +'</div>') .removeClass('text-muted');
-                });
-
-                map.data.addListener('mouseout', function(event) {
-                    map.data.revertStyle();
-                });
-                
-                var content, key, KMT, DPP, PFP;
-                
-                $.getJSON('2016.json', function (data) {
-                   TW2016 = data;
-                });
-                              
-                map.data.addListener('click',  function(event) {
-                    infowindow.close(map);
-                    var votes, people, valid;
-                    var townkey = event.feature.getProperty('TOWNCODE') ,
-                        townname = event.feature.getProperty('TOWNNAME'),
-                        countyname = event.feature.getProperty('COUNTYNAME');
-                        key = countyname +townname
-                        if (TW2016[townkey]) {
-                            TW2016[townkey].forEach(function (val) {
-                                    votes = val.Votes,
-                                    Vpeople = val.ValidPeople,
-                                    Vvotes = val.ValidVotes,
-                                    KMT = val.KMT,
-                                    DPP = val.DPP,
-                                    PFP = val.PFP,
-                                    DPP2 = Number(( DPP / Vvotes * 100).toFixed(2)),
-                                    KMT2 = Number(( KMT / Vvotes * 100).toFixed(2)),
-                                    PFP2 = Number(( PFP / Vvotes * 100).toFixed(2));
-                            });
-                        }
-                        content = 
-                        '<table class="tg" align="center" style="width:280px;">' +
-                        '<tr>' +
-                        '<th class="tg-i8ik" colspan="3">' + countyname+ townname + '</th>' +
-                        '</tr>' +
-                        '<td class="tg-hgcj">' + '2016選舉人數：</td>' +
-                        '<td class="tg-s6z2" colspan="2">' + Vpeople + '人</td>' +
-                        '</tr>' +
-                        '<tr>' +
-                        '<td class="tg-hgcj">投票率：</td>' +
-                        '<td class="tg-s6z2" style="font-weight:bold; font-size:16px;">' + (Vvotes / Vpeople * 100).toFixed(2) + '%' + '</td>' +
-                        '</tr>' +
-                        '</table>'; 
-                $(function() {
-                        Highcharts.setOptions({
-                            colors: ['#00C800', '#0000FF', '#FF6207']
-                        });
-                    $('#container').highcharts({
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: key + "候選人得票數"
-                        },
-                        xAxis: {
-                            categories: [
-                                '2016年藍綠得票比較'
-                            ],
-                            crosshair: true
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: '得票數 (票)'
-                            }
-                        },
-                        tooltip: {
-                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                                '<td style="padding:0"><b>{point.y:.0f} 票</b></td></tr>',
-                            footerFormat: '</table>',
-                            shared: true,
-                            useHTML: true
-                        },
-                        plotOptions: {
-                            column: {
-                                pointPadding: 0.2,
-                                borderWidth: 0
-                            }
-                        },
-                        series: [{
-                            name: '民進黨',
-                            data: [DPP]
-                        }, {
-                            name: '國民黨',
-                            data: [KMT]
-                        }, {
-                            name: '親民黨',
-                            data: [PFP]
-                        }]
-                    });
-                    $('#container2').highcharts({
-                        chart: {
-                            plotBackgroundColor: null,
-                            plotBorderWidth: null,
-                            plotShadow: false,
-                            type: 'pie'
-                        },
-                        title: {
-                            text: townname + "得票率分佈"
-                        },
-                        tooltip: {
-                            pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
-                        },
-                        plotOptions: {
-                            pie: {
-                                allowPointSelect: true,
-                                cursor: 'pointer',
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '<b>{point.name}</b>: {point.percentage:.2f} %',
-                                    style: {
-                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                                    }
-                                }
-                            }
-                        },
-                        series: [{
-                            name: "政黨陣營",
-                            colorByPoint: true,
-                            data: [{
-                                name: '民進黨',
-                                y: DPP2,
-                                sliced: true,
-                                selected: true
-                            }, {
-                                name: '國民黨',
-                                y: KMT2
-                            }, {
-                                name: '親民黨',
-                                y: PFP2
-                            }]
-                        }]
-                        });
-                });        
-                    coordinate = {lat: event.latLng.lat(), lng: event.latLng.lng()}; // 點擊時獲取滑鼠的經緯度座標
-                    infowindow.setPosition(coordinate); // 將資訊視窗的位置，設定為滑鼠的座標
-                    infowindow.setContent(content); // 將資訊視窗打開在地圖上
-                    infowindow.open(map);
-                //$('#detail').html('<div>' + countyname + townname + '：' + KMT ) + '</div>').removeClass('col-md-12');
-
-                });
-                
-                };
-    </script>
-        
-        
-        
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="js/main.js "type="text/javascript"></script>
         <script src="//code.highcharts.com/stock/highstock.js"></script>
         <script src="//code.highcharts.com/stock/modules/exporting.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtScIMXFIVWi2gAGtulwqyLMz0sa88L0&callback=initMap"></script>
